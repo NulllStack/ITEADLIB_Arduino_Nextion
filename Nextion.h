@@ -39,6 +39,7 @@
 #include "NexCheckbox.h"
 #include "NexRadio.h"
 #include "NexScrolltext.h"
+#include "NexQRcode.h"
 #include "NexGpio.h"
 #include "NexRtc.h"
 

@@ -1,3 +1,4 @@
 <map id="NexTimer::detachTimer" name="NexTimer::detachTimer">
-<area shape="rect" id="node2" href="$class_nex_touch.html#af656640c1078a553287a68bf792dd291" title="Detach an callback function. " alt="" coords="212,5,364,32"/>
+<area shape="rect" id="node1" title="Detach an callback function." alt="" coords="5,5,161,32"/>
+<area shape="rect" id="node2" href="$class_nex_touch.html#af656640c1078a553287a68bf792dd291" title="Detach an callback function." alt="" coords="209,5,360,32"/>
 </map>

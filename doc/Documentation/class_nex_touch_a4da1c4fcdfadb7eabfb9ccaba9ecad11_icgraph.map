@@ -1,3 +1,4 @@
 <map id="NexTouch::attachPop" name="NexTouch::attachPop">
-<area shape="rect" id="node2" href="$class_nex_timer.html#ae6f1ae95ef40b8bc6f482185b1ec5175" title="Attach an callback function of timer respond event. " alt="" coords="203,5,359,32"/>
+<area shape="rect" id="node1" title="Attach an callback function of pop touch event." alt="" coords="207,5,353,32"/>
+<area shape="rect" id="node2" href="$class_nex_timer.html#ae6f1ae95ef40b8bc6f482185b1ec5175" title="Attach an callback function of timer respond event." alt="" coords="5,5,159,32"/>
 </map>

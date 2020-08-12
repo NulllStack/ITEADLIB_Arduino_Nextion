@@ -13,6 +13,7 @@ var hierarchy =
         [ "NexNumber", "class_nex_number.html", null ],
         [ "NexPage", "class_nex_page.html", null ],
         [ "NexPicture", "class_nex_picture.html", null ],
+        [ "NexQRcode", "class_nex_q_rcode.html", null ],
         [ "NexRadio", "class_nex_radio.html", null ],
         [ "NexScrolltext", "class_nex_scrolltext.html", null ],
         [ "NexSlider", "class_nex_slider.html", null ],
