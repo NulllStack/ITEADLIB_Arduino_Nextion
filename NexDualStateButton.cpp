@@ -64,7 +64,7 @@ bool NexDSButton::setText(const char *buffer)
     return recvRetCommandFinished();    
 }
 
-uint32_t NexDSButton::Get_state0_color_bco0(uint32_t *number)
+bool NexDSButton::getState0ColorBco0(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -74,7 +74,7 @@ uint32_t NexDSButton::Get_state0_color_bco0(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_state0_color_bco0(uint32_t number)
+bool NexDSButton::setState0ColorBco0(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -92,7 +92,7 @@ bool NexDSButton::Set_state0_color_bco0(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::Get_state1_color_bco1(uint32_t *number)
+bool NexDSButton::getState1ColorBco1(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -102,7 +102,7 @@ uint32_t NexDSButton::Get_state1_color_bco1(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_state1_color_bco1(uint32_t number)
+bool NexDSButton::setState1ColorBco1(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -120,7 +120,7 @@ bool NexDSButton::Set_state1_color_bco1(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::Get_font_color_pco(uint32_t *number)
+bool NexDSButton::getFontColorPco(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -130,7 +130,7 @@ uint32_t NexDSButton::Get_font_color_pco(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_font_color_pco(uint32_t number)
+bool NexDSButton::setFontColorPco(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -148,7 +148,7 @@ bool NexDSButton::Set_font_color_pco(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::Get_place_xcen(uint32_t *number)
+bool NexDSButton::getPlaceXcen(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -158,7 +158,7 @@ uint32_t NexDSButton::Get_place_xcen(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_place_xcen(uint32_t number)
+bool NexDSButton::setPlaceXcen(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -176,7 +176,7 @@ bool NexDSButton::Set_place_xcen(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::Get_place_ycen(uint32_t *number)
+bool NexDSButton::getPlaceYcen(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -186,7 +186,7 @@ uint32_t NexDSButton::Get_place_ycen(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_place_ycen(uint32_t number)
+bool NexDSButton::setPlaceYcen(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -204,7 +204,7 @@ bool NexDSButton::Set_place_ycen(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::getFont(uint32_t *number)
+bool NexDSButton::getFont(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -232,7 +232,7 @@ bool NexDSButton::setFont(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::Get_state0_crop_picc0(uint32_t *number)
+bool NexDSButton::getState0CropPicc0(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -242,7 +242,7 @@ uint32_t NexDSButton::Get_state0_crop_picc0(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_state0_crop_picc0(uint32_t number)
+bool NexDSButton::setState0CropPicc0(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -260,7 +260,7 @@ bool NexDSButton::Set_state0_crop_picc0(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::Get_state1_crop_picc1(uint32_t *number)
+bool NexDSButton::getState1CropPicc1(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -270,7 +270,7 @@ uint32_t NexDSButton::Get_state1_crop_picc1(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_state1_crop_picc1(uint32_t number)
+bool NexDSButton::setState1CropPicc1(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -288,7 +288,7 @@ bool NexDSButton::Set_state1_crop_picc1(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::Get_state0_image_pic0(uint32_t *number)
+bool NexDSButton::getState0ImagePic0(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -298,7 +298,7 @@ uint32_t NexDSButton::Get_state0_image_pic0(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_state0_image_pic0(uint32_t number)
+bool NexDSButton::setState0ImagePic0(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -316,7 +316,7 @@ bool NexDSButton::Set_state0_image_pic0(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexDSButton::Get_state1_image_pic1(uint32_t *number)
+bool NexDSButton::getState1ImagePic1(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -326,7 +326,7 @@ uint32_t NexDSButton::Get_state1_image_pic1(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexDSButton::Set_state1_image_pic1(uint32_t number)
+bool NexDSButton::setState1ImagePic1(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;

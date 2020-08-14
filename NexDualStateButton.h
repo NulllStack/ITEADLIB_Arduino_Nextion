@@ -45,7 +45,7 @@ public: /* methods */
      * Get number attribute of component.
      *
      * @param number - buffer storing text returned. 
-     * @return The real length of text returned. 
+     * @return true if success, false for failure. 
      */
     bool getValue(uint32_t *number);
     
@@ -78,9 +78,9 @@ public: /* methods */
      * Get bco0 attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t Get_state0_color_bco0(uint32_t *number);
+    bool getState0ColorBco0(uint32_t *number);
 	
     /**
      * Set bco0 attribute of component
@@ -88,15 +88,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_state0_color_bco0(uint32_t number);
+    bool setState0ColorBco0(uint32_t number);
 	
     /**
      * Get bco1 attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t Get_state1_color_bco1(uint32_t *number);	
+    bool getState1ColorBco1(uint32_t *number);	
 
     /**
      * Set bco1 attribute of component
@@ -104,15 +104,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_state1_color_bco1(uint32_t number);	
+    bool setState1ColorBco1(uint32_t number);	
 
     /**
      * Get pco attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t Get_font_color_pco(uint32_t *number);	
+    bool getFontColorPco(uint32_t *number);	
 
     /**
      * Set pco attribute of component
@@ -120,15 +120,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_font_color_pco(uint32_t number);		
+    bool setFontColorPco(uint32_t number);		
 
     /**
      * Get xcen attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t Get_place_xcen(uint32_t *number);		
+    bool getPlaceXcen(uint32_t *number);		
 	
     /**
      * Set xcen attribute of component
@@ -136,15 +136,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_place_xcen(uint32_t number);			
+    bool setPlaceXcen(uint32_t number);			
 	
     /**
      * Get ycen attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t Get_place_ycen(uint32_t *number);	
+    bool getPlaceYcen(uint32_t *number);	
 
     /**
      * Set ycen attribute of component
@@ -152,15 +152,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_place_ycen(uint32_t number);		
+    bool setPlaceYcen(uint32_t number);		
 
     /**
      * Get font attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t getFont(uint32_t *number);		
+    bool getFont(uint32_t *number);		
 	
     /**
      * Set font attribute of component
@@ -174,9 +174,9 @@ public: /* methods */
      * Get picc0 attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */	
-    uint32_t Get_state0_crop_picc0(uint32_t *number);
+    bool getState0CropPicc0(uint32_t *number);
 
     /**
      * Set picc0 attribute of component
@@ -184,15 +184,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_state0_crop_picc0(uint32_t number);			
+    bool setState0CropPicc0(uint32_t number);			
 	
     /**
      * Get picc1 attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t Get_state1_crop_picc1(uint32_t *number);	
+    bool getState1CropPicc1(uint32_t *number);	
 	
     /**
      * Set picc1 attribute of component
@@ -200,15 +200,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_state1_crop_picc1(uint32_t number);	
+    bool setState1CropPicc1(uint32_t number);	
 
     /**
      * Get pic0 attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t Get_state0_image_pic0(uint32_t *number);	
+    bool getState0ImagePic0(uint32_t *number);	
 
     /**
      * Set pic0 attribute of component
@@ -216,15 +216,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_state0_image_pic0(uint32_t number);	
+    bool setState0ImagePic0(uint32_t number);	
 
     /**
      * Get pic1 attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t Get_state1_image_pic1(uint32_t *number);		
+    bool getState1ImagePic1(uint32_t *number);		
 	
     /**
      * Set pic1 attribute of component
@@ -232,7 +232,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_state1_image_pic1(uint32_t number);			
+    bool setState1ImagePic1(uint32_t number);			
 };
 /**
  * @}

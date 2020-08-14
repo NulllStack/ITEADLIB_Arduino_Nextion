@@ -22,27 +22,22 @@ NexButton::NexButton(uint8_t pid, uint8_t cid, const char *name)
 
 uint16_t NexButton::getText(char *buffer, uint16_t len)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".txt";
-    sendCommand(cmd.c_str());
+    char cmd[30];
+    sprintf(cmd, "get %s.txt", getObjName());
+    sendCommand(cmd);
     return recvRetString(buffer,len);
 }
 
 bool NexButton::setText(const char *buffer)
 {
-    String cmd;
-    cmd += getObjName();
-    cmd += ".txt=\"";
-    cmd += buffer;
-    cmd += "\"";
-    sendCommand(cmd.c_str());
+    char cmd[30];
+    sprintf(cmd, "%s.txt=\"%s\"", getObjName(), buffer);
+    sendCommand(cmd);
     return recvRetCommandFinished();    
 }
 
 
-uint32_t NexButton::Get_background_color_bco(uint32_t *number)
+bool NexButton::getBackgroundColorBco(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -52,7 +47,7 @@ uint32_t NexButton::Get_background_color_bco(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_background_color_bco(uint32_t number)
+bool NexButton::setBackgroundColorBco(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -70,7 +65,7 @@ bool NexButton::Set_background_color_bco(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_press_background_color_bco2(uint32_t *number)
+bool NexButton::getPressBackgroundColorBco2(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -80,7 +75,7 @@ uint32_t NexButton::Get_press_background_color_bco2(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_press_background_color_bco2(uint32_t number)
+bool NexButton::setPressBackgroundColorBco2(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -98,7 +93,7 @@ bool NexButton::Set_press_background_color_bco2(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_font_color_pco(uint32_t *number)
+bool NexButton::getFontColorPco(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -108,7 +103,7 @@ uint32_t NexButton::Get_font_color_pco(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_font_color_pco(uint32_t number)
+bool NexButton::setFontColorPco(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -126,7 +121,7 @@ bool NexButton::Set_font_color_pco(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_press_font_color_pco2(uint32_t *number)
+bool NexButton::getPressFontColorPco2(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -136,7 +131,7 @@ uint32_t NexButton::Get_press_font_color_pco2(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_press_font_color_pco2(uint32_t number)
+bool NexButton::setPressFontColorPco2(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -154,7 +149,7 @@ bool NexButton::Set_press_font_color_pco2(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_place_xcen(uint32_t *number)
+bool NexButton::getPlaceXcen(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -164,7 +159,7 @@ uint32_t NexButton::Get_place_xcen(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_place_xcen(uint32_t number)
+bool NexButton::setPlaceXcen(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -182,7 +177,7 @@ bool NexButton::Set_place_xcen(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_place_ycen(uint32_t *number)
+bool NexButton::getPlaceYcen(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -192,7 +187,7 @@ uint32_t NexButton::Get_place_ycen(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_place_ycen(uint32_t number)
+bool NexButton::setPlaceYcen(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -210,7 +205,7 @@ bool NexButton::Set_place_ycen(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::getFont(uint32_t *number)
+bool NexButton::getFont(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -238,7 +233,7 @@ bool NexButton::setFont(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_background_cropi_picc(uint32_t *number)
+bool NexButton::getBackgroundCropPicc(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -248,7 +243,7 @@ uint32_t NexButton::Get_background_cropi_picc(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_background_crop_picc(uint32_t number)
+bool NexButton::setBackgroundCropPicc(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -266,7 +261,7 @@ bool NexButton::Set_background_crop_picc(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_press_background_crop_picc2(uint32_t *number)
+bool NexButton::getPressBackgroundCropPicc2(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -276,7 +271,7 @@ uint32_t NexButton::Get_press_background_crop_picc2(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_press_background_crop_picc2(uint32_t number)
+bool NexButton::setPressBackgroundCropPicc2(uint32_t number)
 {
 	char buf[10] = {0};
     String cmd;
@@ -294,7 +289,7 @@ bool NexButton::Set_press_background_crop_picc2(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_background_image_pic(uint32_t *number)
+bool NexButton::getBackgroundImagePic(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -304,7 +299,7 @@ uint32_t NexButton::Get_background_image_pic(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_background_image_pic(uint32_t number)
+bool NexButton::setBackgroundImagePic(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -322,7 +317,7 @@ bool NexButton::Set_background_image_pic(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexButton::Get_press_background_image_pic2(uint32_t *number)
+bool NexButton::getPressBackgroundImagePic2(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -332,7 +327,7 @@ uint32_t NexButton::Get_press_background_image_pic2(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexButton::Set_press_background_image_pic2(uint32_t number)
+bool NexButton::setPressBackgroundImagePic2(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;

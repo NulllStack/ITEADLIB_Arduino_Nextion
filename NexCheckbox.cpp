@@ -19,7 +19,7 @@ NexCheckbox::NexCheckbox(uint8_t pid, uint8_t cid, const char *name)
 {
 }
 
-uint32_t NexCheckbox::getValue(uint32_t *number)
+bool NexCheckbox::getValue(uint32_t *number)
 {
     String cmd = String("get ");
     cmd += getObjName();
@@ -42,7 +42,7 @@ bool NexCheckbox::setValue(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexCheckbox::Get_background_color_bco(uint32_t *number)
+bool NexCheckbox::getBackGroundColorBco(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -52,7 +52,7 @@ uint32_t NexCheckbox::Get_background_color_bco(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexCheckbox::Set_background_color_bco(uint32_t number)
+bool NexCheckbox::setBackGroundColorBco(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -70,7 +70,7 @@ bool NexCheckbox::Set_background_color_bco(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexCheckbox::Get_font_color_pco(uint32_t *number)
+bool NexCheckbox::getFontColorPco(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -80,7 +80,7 @@ uint32_t NexCheckbox::Get_font_color_pco(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexCheckbox::Set_font_color_pco(uint32_t number)
+bool NexCheckbox::setFontColorPco(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;

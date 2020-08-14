@@ -43,48 +43,48 @@ bool NexQRcode::setText(const char *buffer)
 
 bool NexQRcode::Get_background_color_bco(uint32_t* number)
 {
-    char cmd[20];
-    sprintf_s(cmd, 20, "get %s.bco", getObjName());
+    char cmd[30];
+    sprintf(cmd, "get %s.bco", getObjName());
     sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexQRcode::Get_foreground_color_pco(uint32_t* number)
 {
-    char cmd[20];
-    sprintf_s(cmd, 20, "get %s.pco", getObjName());
+    char cmd[30];
+    sprintf(cmd, "get %s.pco", getObjName());
     sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexQRcode::Set_background_color_bco(uint32_t number)
 {
-    char cmd[20];
-    sprintf_s(cmd, 20, "%s.bco=%d", getObjName(), number);
+    char cmd[30];
+    sprintf(cmd, "%s.bco=%d", getObjName(), number);
     sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
 bool NexQRcode::Set_foreground_color_pco(uint32_t number)
 {
-    char cmd[20];
-    sprintf_s(cmd, 20, "%s.pco=%d", getObjName(), number);
+    char cmd[30];
+    sprintf(cmd, "%s.pco=%d", getObjName(), number);
     sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
 bool NexQRcode::getPic(uint32_t* number)
 {
-    char cmd[20];
-    sprintf_s(cmd, 20, "get %s.pic", getObjName());
+    char cmd[30];
+    sprintf(cmd, "get %s.pic", getObjName());
     sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexQRcode::setPic(uint32_t number)
 {
-    char cmd[20];
-    sprintf_s(cmd, 20, "%s.pic=%d", getObjName(), number);
+    char cmd[30];
+    sprintf(cmd, "%s.pic=%d", getObjName(), number);
     sendCommand(cmd);
     return recvRetCommandFinished();
 }

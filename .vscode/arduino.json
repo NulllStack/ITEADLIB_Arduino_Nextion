@@ -1,4 +1,4 @@
 {
-    "sketch": "examples\\CompGpio\\CompGpio.ino",
+    "sketch": "CompQRcode.ino",
     "board": "arduino:sam:arduino_due_x_dbg"
 }

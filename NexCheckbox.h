@@ -14,8 +14,8 @@
  * the License, or (at your option) any later version.
  */
 
-#ifndef __NEXCHECKBOX_H__
-#define __NEXCHECKBOX_H__
+#ifndef NEXCHECKBOXH
+#define NEXCHECKBOXH
 
 #include "NexTouch.h"
 #include "NexHardware.h"
@@ -44,54 +44,60 @@ public: /* methods */
     /**
      * Get val attribute of component
      *
-     * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @param number - buffer storing data return
+     * @retval true - success
+     * @retval false - fail
      */	
-    uint32_t getValue(uint32_t *number);
+    bool getValue(uint32_t *number);
 	
     /**
      * Set val attribute of component
      *
      * @param number - To set up the data
-     * @return true if success, false for failure
+     * @retval true - success
+     * @retval false - fail
      */
     bool setValue(uint32_t number);
 	
     /**
      * Get bco attribute of component
      *
-     * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @param number - buffer storing data return
+     * @retval true - success
+     * @retval false - fail
      */
-    uint32_t Get_background_color_bco(uint32_t *number);		
+    bool getBackGroundColorBco(uint32_t *number);		
 	
     /**
      * Set bco attribute of component
      *
      * @param number - To set up the data
-     * @return true if success, false for failure
+     * @retval true - success
+     * @retval false - fail
      */
-    bool Set_background_color_bco(uint32_t number);			
+    bool setBackGroundColorBco(uint32_t number);			
 	
     /**
      * Get pco attribute of component
      *
-     * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @param number - buffer storing data return
+     * @retval true - success
+     * @retval false - fail
      */
-    uint32_t Get_font_color_pco(uint32_t *number);	
+    bool getFontColorPco(uint32_t *number);	
 
     /**
      * Set pco attribute of component
      *
      * @param number - To set up the data
-     * @return true if success, false for failure
+     * @retval true - success
+     * @retval false - fail
      */
-    bool Set_font_color_pco(uint32_t number);				
+    bool setFontColorPco(uint32_t number);				
 };
 /**
  * @}
  */
 
 
-#endif /* #ifndef __NEXCHECKBOX_H__ */
+#endif /* #ifndef NEXCHECKBOXH */

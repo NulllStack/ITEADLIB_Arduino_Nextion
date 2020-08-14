@@ -43,7 +43,7 @@ bool NexGauge::setValue(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexGauge::Get_background_color_bco(uint32_t *number)
+bool NexGauge::getBackgroundColorBco(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -53,7 +53,7 @@ uint32_t NexGauge::Get_background_color_bco(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexGauge::Set_background_color_bco(uint32_t number)
+bool NexGauge::setBackgroundColorBco(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -71,7 +71,7 @@ bool NexGauge::Set_background_color_bco(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexGauge::Get_font_color_pco(uint32_t *number)
+bool NexGauge::getPointerColorPco(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -81,7 +81,7 @@ uint32_t NexGauge::Get_font_color_pco(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexGauge::Set_font_color_pco(uint32_t number)
+bool NexGauge::setPointerColorPco(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -99,7 +99,7 @@ bool NexGauge::Set_font_color_pco(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexGauge::Get_pointer_thickness_wid(uint32_t *number)
+bool NexGauge::getPointerThicknessWid(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -109,7 +109,7 @@ uint32_t NexGauge::Get_pointer_thickness_wid(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexGauge::Set_pointer_thickness_wid(uint32_t number)
+bool NexGauge::setPointerThicknessWid(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;
@@ -127,7 +127,7 @@ bool NexGauge::Set_pointer_thickness_wid(uint32_t number)
     return recvRetCommandFinished();
 }
 
-uint32_t NexGauge::Get_background_cropi_picc(uint32_t *number)
+bool NexGauge::getBackgroundCropPicc(uint32_t *number)
 {
     String cmd;
     cmd += "get ";
@@ -137,7 +137,7 @@ uint32_t NexGauge::Get_background_cropi_picc(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexGauge::Set_background_crop_picc(uint32_t number)
+bool NexGauge::setBackgroundCropPicc(uint32_t number)
 {
     char buf[10] = {0};
     String cmd;

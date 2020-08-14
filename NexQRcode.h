@@ -121,6 +121,7 @@ public: /* methods */
      * @retval false - None. 
      */
     bool Get_logo_sta();
+    
 
 private:
     bool sta_enable;
