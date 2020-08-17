@@ -58,7 +58,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_background_color_bco(uint32_t *number);   
+    bool getBackgroundColorBco(uint32_t *number);   
     	
     /**
      * Set bco attribute of component
@@ -66,7 +66,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_background_color_bco(uint32_t number);     
+    bool setBackgroundColorBco(uint32_t number);     
 
     /**
      * Get pco attribute of component
@@ -74,7 +74,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */	
-    uint32_t Get_font_color_pco(uint32_t *number);     
+    bool getFontColorPco(uint32_t *number);     
 
     /**
      * Set pco attribute of component
@@ -82,7 +82,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_font_color_pco(uint32_t number);			
+    bool setFontColorPco(uint32_t number);			
 	
     /**
      * Get xcen attribute of component
@@ -90,7 +90,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_place_xcen(uint32_t *number);		
+    bool getPlaceXcen(uint32_t *number);		
 	
     /**
      * Set xcen attribute of component
@@ -98,7 +98,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_place_xcen(uint32_t number);			
+    bool setPlaceXcen(uint32_t number);			
 	
     /**
      * Get ycen attribute of component
@@ -106,7 +106,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_place_ycen(uint32_t *number);		
+    bool getPlaceYcen(uint32_t *number);		
 	
     /**
      * Set ycen attribute of component
@@ -114,7 +114,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_place_ycen(uint32_t number);			
+    bool setPlaceYcen(uint32_t number);			
 	
     /**
      * Get font attribute of component
@@ -122,7 +122,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t getFont(uint32_t *number);	
+    bool getFont(uint32_t *number);	
 
     /**
      * Set font attribute of component
@@ -138,7 +138,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_background_crop_picc(uint32_t *number);	
+    bool getBackgroundCropPicc(uint32_t *number);	
 
     /**
      * Set picc attribute of component
@@ -146,7 +146,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_background_crop_picc(uint32_t number);	
+    bool setBackgroundCropPicc(uint32_t number);	
 
     /**
      * Get pic attribute of component
@@ -154,7 +154,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_background_image_pic(uint32_t *number);	
+    bool getBackgroundImagePic(uint32_t *number);	
 
     /**
      * Set pic attribute of component
@@ -162,7 +162,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_background_image_pic(uint32_t number);	
+    bool setBackgroundImagePic(uint32_t number);	
 
     /**
      * Get dir attribute of component
@@ -170,7 +170,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_scroll_dir(uint32_t *number);		
+    bool getScrollDir(uint32_t *number);		
 	
     /**
      * Set dir attribute of component
@@ -178,7 +178,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_scroll_dir(uint32_t number);	
+    bool setScrollDir(uint32_t number);	
 
     /**
      * Get dis attribute of component
@@ -186,7 +186,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_scroll_distance(uint32_t *number);	
+    bool getScrollDistance(uint32_t *number);	
 
     /**
      * Set dis attribute of component
@@ -194,7 +194,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_scroll_distance(uint32_t number);	
+    bool setScrollDistance(uint32_t number);	
 
     /**
      * Get tim attribute of component
@@ -202,7 +202,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_cycle_tim(uint32_t *number);
+    bool getCycleTim(uint32_t *number);
 
     /**
      * Set tim attribute of component
@@ -210,10 +210,23 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_cycle_tim(uint32_t number);			
+    bool setCycleTim(uint32_t number);			
 	
-    bool enable(void);
-    bool disable(void);
+    /**
+     * Set en attribute of component
+     *
+     * @param number - To set up the data
+     * @return true if success, false for failure
+     */
+    bool setTriggerEn(bool en);
+
+    /**
+     * Get tim attribute of component
+     *
+     * @param number - buffer storing data retur
+     * @return true if success, false for failure
+     */
+    bool getTriggerEn(void);
 };
 
 /**

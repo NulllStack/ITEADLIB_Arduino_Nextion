@@ -22,24 +22,18 @@ NexCrop::NexCrop(uint8_t pid, uint8_t cid, const char *name)
 
 bool NexCrop::getPic(uint32_t *number)
 {
-    String cmd = String("get ");
-    cmd += getObjName();
-    cmd += ".picc";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".picc");
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexCrop::setPic(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".picc=";
-    cmd += buf;
-
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.picc=%u", getObjName(), number);
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 

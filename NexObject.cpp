@@ -56,3 +56,20 @@ void NexObject::printObjInfo(void)
     dbSerialPrintln("]");
 }
 
+bool NexObject::setEnable()
+{
+    char cmd[20] = "vis ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ",1");
+    sendCommand(cmd);
+    return recvRetCommandFinished();
+}
+
+bool NexObject::setDisable()
+{
+    char cmd[20] = "vis ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ",0");
+    sendCommand(cmd);
+    return recvRetCommandFinished();
+}

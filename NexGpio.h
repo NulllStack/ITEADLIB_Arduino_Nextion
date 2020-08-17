@@ -44,7 +44,7 @@ public:
      * @return true if success, false for failure
      */
     
-    bool pin_mode(uint32_t port,uint32_t mode,uint32_t control_id);
+    bool pinMode(uint32_t port,uint32_t mode,uint32_t control_id);
     
     /**
      * write a  HIGH or a LOW value to a digital pin
@@ -54,16 +54,16 @@ public:
      * @return true if success, false for failure
      */
     
-    bool digital_write(uint32_t port,uint32_t value);
+    bool digitalWrite(uint32_t port,uint32_t value);
     
     /**
      * read a HIGH or a LOW value to a digital pin
      *
      * @param port - the gpio port number
-     * @return the value from a specified digital pin, either high or low 
+     * @return the value from a specified digital pin, either HIGH or LOW
      */
     
-    uint32_t digital_read(uint32_t port);
+    uint32_t digitalRead(uint32_t port);
     
     /**
      * writes an analog value (PWM wave) to a pin
@@ -73,7 +73,7 @@ public:
      * @return true if success, false for failure
      */
     
-    bool analog_write(uint32_t port,uint32_t value);
+    bool analogWrite(uint32_t port,uint32_t value);
     
     /**
      * writes pwm output frequency
@@ -82,7 +82,7 @@ public:
      * @return true if success, false for failure
      */
     
-    bool set_pwmfreq(uint32_t value);
+    bool setPwmfreq(uint32_t value);
     
     /**
      * read pwm output frequency
@@ -91,7 +91,7 @@ public:
      * @return true if success, false for failure
      */
     
-    uint32_t get_pwmfreq(uint32_t *number);
+    uint32_t getPwmfreq(uint32_t *number);
      
 };
     

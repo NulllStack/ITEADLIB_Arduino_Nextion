@@ -51,7 +51,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_background_color_bco(uint32_t *number);
+    bool getBackgroundColorBco(uint32_t *number);
 	
     /**
      * Set bco attribute of component
@@ -59,7 +59,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_background_color_bco(uint32_t number);
+    bool setBackgroundColorBco(uint32_t number);
 	
     /**
      * Get gdc attribute of component
@@ -67,7 +67,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_grid_color_gdc(uint32_t *number);	
+    bool getGridColorGdc(uint32_t *number);	
 
     /**
      * Set gdc attribute of component
@@ -75,7 +75,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_grid_color_gdc(uint32_t number);			
+    bool setGridColorGdc(uint32_t number);			
 	
     /**
      * Get gdw attribute of component
@@ -83,7 +83,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_grid_width_gdw(uint32_t *number);	
+    bool getGridWidthGdw(uint32_t *number);	
 
     /**
      * Set gdw attribute of component
@@ -91,7 +91,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_grid_width_gdw(uint32_t number);			
+    bool setGridWidthGdw(uint32_t number);			
 	
     /**
      * Get gdh attribute of component
@@ -99,7 +99,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_grid_height_gdh(uint32_t *number);
+    bool getGridHeightGdh(uint32_t *number);
 
     /**
      * Set gdh attribute of component
@@ -107,23 +107,25 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_grid_height_gdh(uint32_t number);			
+    bool setGridHeightGdh(uint32_t number);			
 	
     /**
      * Get pco0 attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @param channel - Which channel
+     * @return true if success, false for failure
      */
-    uint32_t Get_channel_0_color_pco0(uint32_t *number);	
+    bool getChannelColorPco(uint32_t *number, uint8_t channel = 0);	
 
     /**
      * Set pco0 attribute of component
      *
      * @param number - To set up the data
+     * @param channel - Which channel to set
      * @return true if success, false for failure
      */
-    bool Set_channel_0_color_pco0(uint32_t number);			
+    bool setChannelColorPco(uint32_t number, uint8_t channel = 0);
 };
 
 /**

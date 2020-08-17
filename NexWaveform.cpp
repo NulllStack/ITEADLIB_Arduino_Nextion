@@ -21,156 +21,121 @@ NexWaveform::NexWaveform(uint8_t pid, uint8_t cid, const char *name)
 
 bool NexWaveform::addValue(uint8_t ch, uint8_t number)
 {
-    char buf[15] = {0};
+    char cmd[NEXTION_COMMAND_BUFFER] = {0};
     
     if (ch > 3)
     {
         return false;
     }
     
-    sprintf(buf, "add %u,%u,%u", getObjCid(), ch, number);
+    sprintf(cmd, "add %u,%u,%u", getObjCid(), ch, number);
 
-    sendCommand(buf);
-    return true;
-}
-
-uint32_t NexWaveform::Get_background_color_bco(uint32_t *number)
-{
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".bco";
-    sendCommand(cmd.c_str());
-    return recvRetNumber(number);
-}
-
-bool NexWaveform::Set_background_color_bco(uint32_t number)
-{
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".bco=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
-	
-    cmd="";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexWaveform::Get_grid_color_gdc(uint32_t *number)
+bool NexWaveform::getBackgroundColorBco(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".gdc";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.bco", getObjName());
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexWaveform::Set_grid_color_gdc(uint32_t number)
+bool NexWaveform::setBackgroundColorBco(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".gdc=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.bco=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd="";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexWaveform::Get_grid_width_gdw(uint32_t *number)
+bool NexWaveform::getGridColorGdc(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".gdw";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.gdc", getObjName());
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexWaveform::Set_grid_width_gdw(uint32_t number)
+bool NexWaveform::setGridColorGdc(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".gdw=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.gdc=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd="";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexWaveform::Get_grid_height_gdh(uint32_t *number)
+bool NexWaveform::getGridWidthGdw(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".gdh";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.gdw", getObjName());
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexWaveform::Set_grid_height_gdh(uint32_t number)
+bool NexWaveform::setGridWidthGdw(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".gdh=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.gdw=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd="";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexWaveform::Get_channel_0_color_pco0(uint32_t *number)
+bool NexWaveform::getGridHeightGdh(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".pco0";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.gdh", getObjName());
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexWaveform::Set_channel_0_color_pco0(uint32_t number)
+bool NexWaveform::setGridHeightGdh(uint32_t number)
+{
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.gdh=%u", getObjName(), number);
+    sendCommand(cmd);
+	
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
+    return recvRetCommandFinished();
+}
+
+bool NexWaveform::getChannelColorPco(uint32_t *number, uint8_t channel = 0)
+{
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.pco%d", getObjName(), channel);
+    sendCommand(cmd);
+    return recvRetNumber(number);
+}
+
+bool NexWaveform::setChannelColorPco(uint32_t number, uint8_t channel = 0)
 {    
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".pco0=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.pco%d=%d", getObjName(), channel, number);    
+    sendCommand(cmd);
+    recvRetCommandFinished();
 	
-    cmd="";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    sprintf(cmd, "ref %s", getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
  

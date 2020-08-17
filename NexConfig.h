@@ -34,8 +34,14 @@
 /**
  * Define nexSerial for communicate with Nextion touch panel. 
  */
+//#define USE_SOFTWARE_SERIAL
+#ifdef USE_SOFTWARE_SERIAL
+#include <SoftwareSerial.h>
+SoftwareSerial softSerial(3, 2); /* RX:D3, TX:D2 */
+#define nexSerial softSerial
+#else
 #define nexSerial Serial2
-
+#endif
 
 #ifdef DEBUG_SERIAL_ENABLE
 #define dbSerialPrint(a)    dbSerial.print(a)

@@ -62,7 +62,7 @@ public: /* methods */
      * @retval true - success. 
      * @retval false - failed. 
      */
-    bool Get_background_color_bco(uint32_t* number);
+    bool getBackgroundColorBco(uint32_t* number);
 
     /**
      * Get bco attribute of component
@@ -72,7 +72,7 @@ public: /* methods */
      * @retval true - success. 
      * @retval false - failed. 
      */
-    bool Get_foreground_color_pco(uint32_t* number);
+    bool getForegroundColorPco(uint32_t* number);
 
     /**
      * Set bco attribute of component
@@ -82,7 +82,7 @@ public: /* methods */
      * @retval true - success. 
      * @retval false - failed. 
      */
-    bool Set_background_color_bco(uint32_t number);
+    bool setBackgroundColorBco(uint32_t number);
 
     /**
      * Set pco attribute of component
@@ -92,7 +92,7 @@ public: /* methods */
      * @retval true - success. 
      * @retval false - failed. 
      */
-    bool Set_foreground_color_pco(uint32_t number);
+    bool setForegroundColorPco(uint32_t number);
 
     /**
      * Get picture's number.
@@ -113,18 +113,6 @@ public: /* methods */
      * @retval false - failed. 
      */
     bool setPic(uint32_t number);
-
-    /**
-     * Get sta attribute of component.
-     * 
-     * @retval true - Has.
-     * @retval false - None. 
-     */
-    bool Get_logo_sta();
-    
-
-private:
-    bool sta_enable;
 };
 /**
  * @}

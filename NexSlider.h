@@ -61,7 +61,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_background_color_bco(uint32_t *number);
+    bool getBackgroundColorBco(uint32_t *number);
 	
     /**
      * Set bco attribute of component
@@ -69,7 +69,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_background_color_bco(uint32_t number);
+    bool setBackgroundColorBco(uint32_t number);
 	
     /**
      * Get pco attribute of component
@@ -77,7 +77,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_font_color_pco(uint32_t *number);		
+    bool getFontColorPco(uint32_t *number);		
 	
     /**
      * Set pco attribute of component
@@ -85,7 +85,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_font_color_pco(uint32_t number);			
+    bool setFontColorPco(uint32_t number);			
 	
     /**
      * Get wid attribute of component
@@ -93,7 +93,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_pointer_thickness_wid(uint32_t *number);	
+    bool getPointerThicknessWid(uint32_t *number);	
 
     /**
      * Set wid attribute of component
@@ -101,7 +101,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_pointer_thickness_wid(uint32_t number);		
+    bool setPointerThicknessWid(uint32_t number);		
 
     /**
      * Get hig attribute of component
@@ -109,7 +109,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t Get_cursor_height_hig(uint32_t *number);	
+    bool getCursorHeightHig(uint32_t *number);	
 
     /**
      * Set hig attribute of component
@@ -117,7 +117,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_cursor_height_hig(uint32_t number);			
+    bool setCursorHeightHig(uint32_t number);			
 	
     /**
      * Get maxval attribute of component
@@ -125,7 +125,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t getMaxval(uint32_t *number);	
+    bool getMaxval(uint32_t *number);	
 	
     /**
      * Set maxval attribute of component
@@ -141,7 +141,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    uint32_t getMinval(uint32_t *number);	
+    bool getMinval(uint32_t *number);	
 	
     /**
      * Set minval attribute of component

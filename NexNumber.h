@@ -39,9 +39,9 @@ public: /* methods */
      * Get number attribute of component.
      *
      * @param number - buffer storing text returned. 
-     * @return The real length of text returned. 
+     * @return true if success, false for failure. 
      */
-    bool getValue(uint32_t *number);
+    bool getValue(int32_t *number);
     
     /**
      * Set number attribute of component.
@@ -49,15 +49,15 @@ public: /* methods */
      * @param number - number buffer. 
      * @return true if success, false for failure. 
      */
-    bool setValue(uint32_t number);
+    bool setValue(int32_t number);
 	
     /**
      * Get bco attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure. 
      */
-    uint32_t Get_background_color_bco(uint32_t *number);
+    bool getBackgroundColorBco(uint32_t *number);
 	
     /**
      * Set bco attribute of component
@@ -65,15 +65,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_background_color_bco(uint32_t number);
+    bool setBackgroundColorBco(uint32_t number);
 	
     /**
      * Get pco attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure. 
      */
-    uint32_t Get_font_color_pco(uint32_t *number);	
+    bool getFontColorPco(uint32_t *number);	
 
     /**
      * Set pco attribute of component
@@ -81,15 +81,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_font_color_pco(uint32_t number);			
+    bool setFontColorPco(uint32_t number);			
 	
     /**
      * Get xcen attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure. 
      */
-    uint32_t Get_place_xcen(uint32_t *number);	
+    bool getPlaceXcen(uint32_t *number);	
 
     /**
      * Set xcen attribute of component
@@ -97,15 +97,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_place_xcen(uint32_t number);			
+    bool setPlaceXcen(uint32_t number);			
 	
     /**
      * Get ycen attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure. 
      */
-    uint32_t Get_place_ycen(uint32_t *number);	
+    bool getPlaceYcen(uint32_t *number);	
 
     /**
      * Set ycen attribute of component
@@ -113,15 +113,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_place_ycen(uint32_t number);			
+    bool setPlaceYcen(uint32_t number);			
 	
     /**
      * Get font attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure. 
      */
-    uint32_t getFont(uint32_t *number);	
+    bool getFont(uint32_t *number);	
 
     /**
      * Set font attribute of component
@@ -135,9 +135,9 @@ public: /* methods */
      * Get lenth attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure. 
      */
-    uint32_t Get_number_lenth(uint32_t *number);
+    bool getNumberLength(uint32_t *number);
 
     /**
      * Set lenth attribute of component
@@ -145,15 +145,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_number_lenth(uint32_t number);	
+    bool setNumberLength(uint32_t number);	
 
     /**
      * Get picc attribute of component
      *
-     * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @param number - buffer storing data return
+     * @return true if success, false for failure. 
      */
-    uint32_t Get_background_crop_picc(uint32_t *number);	
+    bool getBackgroundCropPicc(uint32_t *number);	
 
     /**
      * Set picc attribute of component
@@ -161,15 +161,15 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_background_crop_picc(uint32_t number);	
+    bool setBackgroundCropPicc(uint32_t number);	
 
     /**
      * Get pic attribute of component
      *
-     * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @param number - buffer storing data return
+     * @return true if success, false for failure. 
      */
-    uint32_t Get_background_image_pic(uint32_t *number);	
+    bool getBackgroundImagePic(uint32_t *number);	
 
     /**
      * Set pic attribute of component
@@ -177,7 +177,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool Set_background_image_pic(uint32_t number);			
+    bool setBackgroundImagePic(uint32_t number);			
 };
 
 /**

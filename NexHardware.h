@@ -14,6 +14,7 @@
  */
 #ifndef __NEXHARDWARE_H__
 #define __NEXHARDWARE_H__
+#define NEXTION_COMMAND_BUFFER 20
 #include <Arduino.h>
 #include "NexConfig.h"
 #include "NexTouch.h"
@@ -48,6 +49,7 @@ void nexLoop(NexTouch *nex_listen_list[]);
  */
 
 bool recvRetNumber(uint32_t *number, uint32_t timeout = 100);
+bool recvRetNumber(int32_t *number, uint32_t timeout = 100);
 uint16_t recvRetString(char *buffer, uint16_t len, uint32_t timeout = 100);
 void sendCommand(const char* cmd);
 bool recvRetCommandFinished(uint32_t timeout = 100);

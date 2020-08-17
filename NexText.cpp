@@ -21,11 +21,9 @@ NexText::NexText(uint8_t pid, uint8_t cid, const char *name)
 
 uint16_t NexText::getText(char *buffer, uint16_t len)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".txt";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.txt", getObjName());
+    sendCommand(cmd);
     return recvRetString(buffer,len);
 }
 
@@ -40,194 +38,151 @@ bool NexText::setText(const char *buffer)
     return recvRetCommandFinished();    
 }
 
-uint32_t NexText::Get_background_color_bco(uint32_t *number)
+bool NexText::getBackgroundColorBco(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".bco";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.bco", getObjName());
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexText::Set_background_color_bco(uint32_t number)
+bool NexText::setBackgroundColorBco(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".bco=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.bco=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd="";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexText::Get_font_color_pco(uint32_t *number)
+bool NexText::getFontColorPco(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".pco";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".pco");
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexText::Set_font_color_pco(uint32_t number)
+bool NexText::setFontColorPco(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".pco=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.pco=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd = "";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexText::Get_place_xcen(uint32_t *number)
+bool NexText::getPlaceXcen(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".xcen";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".xcen");
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexText::Set_place_xcen(uint32_t number)
+bool NexText::setPlaceXcen(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".xcen=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.xcen=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd = "";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexText::Get_place_ycen(uint32_t *number)
+bool NexText::getPlaceYcen(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".ycen";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".ycen");
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexText::Set_place_ycen(uint32_t number)
+bool NexText::setPlaceYcen(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".ycen=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.ycen=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd = "";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexText::getFont(uint32_t *number)
+bool NexText::getFont(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".font";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".font");
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexText::setFont(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".font=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
-
-    cmd = "";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
-    return recvRetCommandFinished();
-}
-
-uint32_t NexText::Get_background_crop_picc(uint32_t *number)
-{
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".picc";
-    sendCommand(cmd.c_str());
-    return recvRetNumber(number);
-}
-
-bool NexText::Set_background_crop_picc(uint32_t number)
-{
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".picc=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.font=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd = "";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-uint32_t NexText::Get_background_image_pic(uint32_t *number)
+bool NexText::getBackgroundCropPicc(uint32_t *number)
 {
-    String cmd = String("get ");
-    cmd += getObjName();
-    cmd += ".pic";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".picc");
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexText::Set_background_image_pic(uint32_t number)
+bool NexText::setBackgroundCropPicc(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".pic=";
-    cmd += buf;
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.picc=%u", getObjName(), number);
+    sendCommand(cmd);
+	
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
+    return recvRetCommandFinished();
+}
 
-    sendCommand(cmd.c_str());
+bool NexText::getBackgroundImagePic(uint32_t *number)
+{
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".pic");
+    sendCommand(cmd);
+    return recvRetNumber(number);
+}
+
+bool NexText::setBackgroundImagePic(uint32_t number)
+{
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.pic=%u", getObjName(), number);
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 

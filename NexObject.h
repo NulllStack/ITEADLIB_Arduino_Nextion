@@ -16,6 +16,7 @@
 #ifndef __NEXOBJECT_H__
 #define __NEXOBJECT_H__
 #include <Arduino.h>
+#include "NexHardware.h"
 #include "NexConfig.h"
 /**
  * @addtogroup CoreAPI 
@@ -72,6 +73,22 @@ protected: /* methods */
      * @return the name of component. 
      */
     const char *getObjName(void);    
+
+    /*
+     * Enable Nextion object.
+     *
+     * @retval true - success
+     * @retval false - fail
+     */
+    bool setEnable();
+
+    /*
+     * Disable Nextion object.
+     *
+     * @retval true - success
+     * @retval false - fail
+     */
+    bool setDisable();
     
 private: /* data */ 
     uint8_t __pid; /* Page ID */

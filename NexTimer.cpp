@@ -32,84 +32,38 @@ void NexTimer::detachTimer(void)
 
 bool NexTimer::getCycle(uint32_t *number)
 {
-    String cmd = String("get ");
-    cmd += getObjName();
-    cmd += ".tim";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".tim");
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexTimer::setCycle(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
     if (number < 50)
     {
         number = 50;
     }
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".tim=";
-    cmd += buf;
 
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.tim=%u", getObjName(), number);
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-
-bool NexTimer::enable(void)
+bool NexTimer::setTriggerEn(bool en)
 {
-    char buf[10] = {0};
-    String cmd;
-    utoa(1, buf, 10);
-    cmd += getObjName();
-    cmd += ".en=";
-    cmd += buf;
-
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.en=%d", getObjName(), en);
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-bool NexTimer::disable(void)
+bool NexTimer::getTriggerEn(void)
 {
-    char buf[10] = {0};
-    String cmd;
-    utoa(0, buf, 10);
-    cmd += getObjName();
-    cmd += ".en=";
-    cmd += buf;
-
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.en", getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
-
-uint32_t NexTimer::Get_cycle_tim(uint32_t *number)
-{
-    String cmd = String("get ");
-    cmd += getObjName();
-    cmd += ".tim";
-    sendCommand(cmd.c_str());
-    return recvRetNumber(number);
-}
-
-bool NexTimer::Set_cycle_tim(uint32_t number)
-{
-    char buf[10] = {0};
-    String cmd;
-    if (number < 8)
-    {
-        number = 8;
-    }
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".tim=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
-	
-    cmd = "";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
-    return recvRetCommandFinished();
-}
-

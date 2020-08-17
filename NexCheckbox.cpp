@@ -21,79 +21,59 @@ NexCheckbox::NexCheckbox(uint8_t pid, uint8_t cid, const char *name)
 
 bool NexCheckbox::getValue(uint32_t *number)
 {
-    String cmd = String("get ");
-    cmd += getObjName();
-    cmd += ".val";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.val", getObjName());
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexCheckbox::setValue(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".val=";
-    cmd += buf;
-
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.val=%u", getObjName(), number);
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
 bool NexCheckbox::getBackGroundColorBco(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".bco";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.bco", getObjName());
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexCheckbox::setBackGroundColorBco(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".bco=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.bco=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd="";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
 bool NexCheckbox::getFontColorPco(uint32_t *number)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".pco";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER] = "get ";
+    strcat(cmd, getObjName());
+    strcat(cmd, ".pco");
+    sendCommand(cmd);
     return recvRetNumber(number);
 }
 
 bool NexCheckbox::setFontColorPco(uint32_t number)
 {
-    char buf[10] = {0};
-    String cmd;
-    
-    utoa(number, buf, 10);
-    cmd += getObjName();
-    cmd += ".pco=";
-    cmd += buf;
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "%s.pco=%u", getObjName(), number);
+    sendCommand(cmd);
 	
-    cmd = "";
-    cmd += "ref ";
-    cmd += getObjName();
-    sendCommand(cmd.c_str());
+    memset(cmd, 0, NEXTION_COMMAND_BUFFER);
+    strcat(cmd, "ref ");
+    strcat(cmd, getObjName());
+    sendCommand(cmd);
     return recvRetCommandFinished();
 }

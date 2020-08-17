@@ -22,11 +22,9 @@ NexQRcode::NexQRcode(uint8_t pid, uint8_t cid, const char *name)
 
 uint16_t NexQRcode::getText(char *buffer, uint16_t len)
 {
-    String cmd;
-    cmd += "get ";
-    cmd += getObjName();
-    cmd += ".txt";
-    sendCommand(cmd.c_str());
+    char cmd[NEXTION_COMMAND_BUFFER];
+    sprintf(cmd, "get %s.txt", getObjName());
+    sendCommand(cmd);
     return recvRetString(buffer,len);
 }
 
@@ -41,33 +39,33 @@ bool NexQRcode::setText(const char *buffer)
     return recvRetCommandFinished();
 }
 
-bool NexQRcode::Get_background_color_bco(uint32_t* number)
+bool NexQRcode::getBackgroundColorBco(uint32_t* number)
 {
-    char cmd[30];
+    char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "get %s.bco", getObjName());
     sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexQRcode::Get_foreground_color_pco(uint32_t* number)
+bool NexQRcode::getForegroundColorPco(uint32_t* number)
 {
-    char cmd[30];
+    char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "get %s.pco", getObjName());
     sendCommand(cmd);
     return recvRetNumber(number);
 }
 
-bool NexQRcode::Set_background_color_bco(uint32_t number)
+bool NexQRcode::setBackgroundColorBco(uint32_t number)
 {
-    char cmd[30];
+    char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "%s.bco=%d", getObjName(), number);
     sendCommand(cmd);
     return recvRetCommandFinished();
 }
 
-bool NexQRcode::Set_foreground_color_pco(uint32_t number)
+bool NexQRcode::setForegroundColorPco(uint32_t number)
 {
-    char cmd[30];
+    char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "%s.pco=%d", getObjName(), number);
     sendCommand(cmd);
     return recvRetCommandFinished();
@@ -75,7 +73,7 @@ bool NexQRcode::Set_foreground_color_pco(uint32_t number)
 
 bool NexQRcode::getPic(uint32_t* number)
 {
-    char cmd[30];
+    char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "get %s.pic", getObjName());
     sendCommand(cmd);
     return recvRetNumber(number);
@@ -83,7 +81,7 @@ bool NexQRcode::getPic(uint32_t* number)
 
 bool NexQRcode::setPic(uint32_t number)
 {
-    char cmd[30];
+    char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "%s.pic=%d", getObjName(), number);
     sendCommand(cmd);
     return recvRetCommandFinished();

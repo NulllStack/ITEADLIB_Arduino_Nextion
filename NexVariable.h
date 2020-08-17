@@ -40,31 +40,14 @@ public: /* methods */
      * @copydoc NexObject::NexObject(uint8_t pid, uint8_t cid, const char *name);
      */
     NexVariable(uint8_t pid, uint8_t cid, const char *name);
-
-    /**
-     * Get text attribute of component.
-     *
-     * @param buffer - buffer storing text returned. 
-     * @param len - length of buffer. 
-     * @return The real length of text returned. 
-     */
-    uint32_t getText(char *buffer, uint32_t len);    
-
-    /**
-     * Set text attribute of component.
-     *
-     * @param buffer - text buffer terminated with '\0'. 
-     * @return true if success, false for failure. 
-     */
-    bool setText(const char *buffer);    
 	
     /**
      * Get val attribute of component
      *
      * @param number - buffer storing data retur
-     * @return the length of the data 
+     * @return true if success, false for failure
      */
-    uint32_t getValue(uint32_t *number);
+    bool getValue(int32_t *number);
 	
     /**
      * Set val attribute of component
@@ -72,7 +55,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool setValue(uint32_t number);
+    bool setValue(int32_t number);
 };
 /**
  * @}
