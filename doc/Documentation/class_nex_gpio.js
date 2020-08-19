@@ -1,9 +1,9 @@
 var class_nex_gpio =
 [
-    [ "analog_write", "class_nex_gpio.html#af21eb91b041d149193bc716202d4a462", null ],
-    [ "digital_read", "class_nex_gpio.html#a36386b97898f0960abda51c6010378eb", null ],
-    [ "digital_write", "class_nex_gpio.html#aaea4cb428fa0a2e26927073c20ed64ac", null ],
-    [ "get_pwmfreq", "class_nex_gpio.html#a8fca87ac0cdfbc8a62dec807b949c36d", null ],
-    [ "pin_mode", "class_nex_gpio.html#adbe08eb11827d75c6b2e9c935d9da19a", null ],
-    [ "set_pwmfreq", "class_nex_gpio.html#a62c2cb633e321ef2273eb3a7af6a5b47", null ]
+    [ "analogWrite", "class_nex_gpio.html#ab87495b219e6f1b13c76cac4b10c46f7", null ],
+    [ "digitalRead", "class_nex_gpio.html#aa310844df31998c88f7393ed3bfcb102", null ],
+    [ "digitalWrite", "class_nex_gpio.html#a8fbb57efee8c81b980aebacd405bf003", null ],
+    [ "getPwmfreq", "class_nex_gpio.html#acd64daebd3643d2107b0a73021815971", null ],
+    [ "pinMode", "class_nex_gpio.html#a35946929abfc88e2ae766019276114ea", null ],
+    [ "setPwmfreq", "class_nex_gpio.html#a3ea35eaab17d750a8efa0cfa675a84a9", null ]
 ];

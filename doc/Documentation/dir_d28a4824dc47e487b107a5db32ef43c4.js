@@ -10,6 +10,7 @@ var dir_d28a4824dc47e487b107a5db32ef43c4 =
     [ "CompPage", "dir_f76977d9ffe8ddf3ad01f3d689aa5df4.html", "dir_f76977d9ffe8ddf3ad01f3d689aa5df4" ],
     [ "CompPicture", "dir_ce36ac18ad3deaf5eae0bd2e09775a7d.html", "dir_ce36ac18ad3deaf5eae0bd2e09775a7d" ],
     [ "CompProgressBar", "dir_7962cac16a99e8bbaaea18abede03fcb.html", "dir_7962cac16a99e8bbaaea18abede03fcb" ],
+    [ "CompQRcode", "dir_2db3bb3dc023cbd05f8db55897eab116.html", "dir_2db3bb3dc023cbd05f8db55897eab116" ],
     [ "CompRtc", "dir_d61a98ab46f480a6a5039bdc69638773.html", "dir_d61a98ab46f480a6a5039bdc69638773" ],
     [ "CompSlider", "dir_472f54fb1d9b74971d8e15d62f212bd3.html", "dir_472f54fb1d9b74971d8e15d62f212bd3" ],
     [ "CompText", "dir_c918e8bf3fc71f849978cdb0d900e61c.html", "dir_c918e8bf3fc71f849978cdb0d900e61c" ],

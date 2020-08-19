@@ -118,7 +118,7 @@ bool NexWaveform::setGridHeightGdh(uint32_t number)
     return recvRetCommandFinished();
 }
 
-bool NexWaveform::getChannelColorPco(uint32_t *number, uint8_t channel = 0)
+bool NexWaveform::getChannelColorPco(uint32_t *number, uint8_t channel)
 {
     char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "get %s.pco%d", getObjName(), channel);
@@ -126,7 +126,7 @@ bool NexWaveform::getChannelColorPco(uint32_t *number, uint8_t channel = 0)
     return recvRetNumber(number);
 }
 
-bool NexWaveform::setChannelColorPco(uint32_t number, uint8_t channel = 0)
+bool NexWaveform::setChannelColorPco(uint32_t number, uint8_t channel)
 {    
     char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "%s.pco%d=%d", getObjName(), channel, number);    

@@ -15,23 +15,6 @@
 
 #include "NexUpload.h"
 
-//#define USE_SOFTWARE_SERIAL
-#ifdef USE_SOFTWARE_SERIAL
-#include <SoftwareSerial.h>
-SoftwareSerial dbSerial(3, 2); /* RX:D3, TX:D2 */
-#define DEBUG_SERIAL_ENABLE
-#endif
-
-#ifdef DEBUG_SERIAL_ENABLE
-#define dbSerialPrint(a)    dbSerial.print(a)
-#define dbSerialPrintln(a)  dbSerial.println(a)
-#define dbSerialBegin(a)    dbSerial.begin(a)
-#else
-#define dbSerialPrint(a)    do{}while(0)
-#define dbSerialPrintln(a)  do{}while(0)
-#define dbSerialBegin(a)    do{}while(0)
-#endif
-
 NexUpload::NexUpload(const char *file_name,const uint8_t SD_chip_select,uint32_t download_baudrate)
 {
     _file_name = file_name; 
@@ -108,7 +91,7 @@ bool NexUpload::_checkFile(void)
 bool NexUpload::_searchBaudrate(uint32_t baudrate)
 {
     String string = String("");  
-    nexSerial.begin(baudrate);
+    nexSerial->begin(baudrate);
     this->sendCommand("");
     this->sendCommand("connect");
     this->recvRetString(string);  
@@ -122,29 +105,29 @@ bool NexUpload::_searchBaudrate(uint32_t baudrate)
 void NexUpload::sendCommand(const char* cmd)
 {
 
-    while (nexSerial.available())
+    while (nexSerial->available())
     {
-        nexSerial.read();
+        nexSerial->read();
     }
 
-    nexSerial.print(cmd);
-    nexSerial.write(0xFF);
-    nexSerial.write(0xFF);
-    nexSerial.write(0xFF);
+    nexSerial->print(cmd);
+    nexSerial->write(0xFF);
+    nexSerial->write(0xFF);
+    nexSerial->write(0xFF);
 }
 
 uint16_t NexUpload::recvRetString(String &string, uint32_t timeout,bool recv_flag)
 {
     uint16_t ret = 0;
     uint8_t c = 0;
-    long start;
+    uint32_t start;
     bool exit_flag = false;
     start = millis();
     while (millis() - start <= timeout)
     {
-        while (nexSerial.available())
+        while (nexSerial->available())
         {
-            c = nexSerial.read(); 
+            c = nexSerial->read(); 
             if(c == 0)
             {
                 continue;
@@ -180,7 +163,7 @@ bool NexUpload::_setDownloadBaudrate(uint32_t baudrate)
     this->sendCommand("");
     this->sendCommand(cmd.c_str());
     delay(50);
-    nexSerial.begin(baudrate);
+    nexSerial->begin(baudrate);
     this->recvRetString(string,500);  
     if(string.indexOf(0x05) != -1)
     { 
@@ -208,7 +191,7 @@ bool NexUpload::_downloadTftFile(void)
                 if(j <= last_send_num)
                 {
                     c = _myFile.read();
-                    nexSerial.write(c);
+                    nexSerial->write(c);
                 }
                 else
                 {
@@ -222,7 +205,7 @@ bool NexUpload::_downloadTftFile(void)
             for(uint16_t i = 1; i <= 4096; i++)
             {
                 c = _myFile.read();
-                nexSerial.write(c);
+                nexSerial->write(c);
             }
         }
         this->recvRetString(string,500,true);  

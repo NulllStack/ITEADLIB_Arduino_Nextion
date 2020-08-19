@@ -71,28 +71,36 @@ $(document).ready(function(){initNavTree('_nex_hardware_8h_source.html',''); ini
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nex_config_8h.html">NexConfig.h</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_nex_touch_8h.html">NexTouch.h</a>&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group___core_a_p_i.html#gab09ddba6b72334d30ae091a7b038d790">nexInit</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___core_a_p_i.html#ga91c549e696b0ca035cf18901e6a50d5a">nexLoop</a>(<a class="code" href="class_nex_touch.html">NexTouch</a> *nex_listen_list[]);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">bool</span> recvRetNumber(uint32_t *number, uint32_t timeout = 100);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;uint16_t recvRetString(<span class="keywordtype">char</span> *buffer, uint16_t len, uint32_t timeout = 100);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> sendCommand(<span class="keyword">const</span> <span class="keywordtype">char</span>* cmd);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">bool</span> recvRetCommandFinished(uint32_t timeout = 100);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* #ifndef __NEXHARDWARE_H__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#ifdef USE_SOFTWARE_SERIAL</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;SoftwareSerial.h&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">extern</span> SoftwareSerial *<a class="code" href="group___core_a_p_i.html#ga37c375dd9c569925192da2b5b60884fe">nexSerial</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">bool</span> nexInit(SoftwareSerial &amp;<a class="code" href="group___core_a_p_i.html#ga37c375dd9c569925192da2b5b60884fe">nexSerial</a>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">extern</span> HardwareSerial *<a class="code" href="group___core_a_p_i.html#ga37c375dd9c569925192da2b5b60884fe">nexSerial</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">bool</span> nexInit(HardwareSerial &amp;<a class="code" href="group___core_a_p_i.html#ga37c375dd9c569925192da2b5b60884fe">nexSerial</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___core_a_p_i.html#ga91c549e696b0ca035cf18901e6a50d5a">nexLoop</a>(<a class="code" href="class_nex_touch.html">NexTouch</a> *nex_listen_list[]);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">bool</span> recvRetNumber(uint32_t *number, uint32_t timeout = 100);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">bool</span> recvRetNumber(int32_t *number, uint32_t timeout = 100);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;uint16_t recvRetString(<span class="keywordtype">char</span> *buffer, uint16_t len, uint32_t timeout = 100);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> sendCommand(<span class="keyword">const</span> <span class="keywordtype">char</span>* cmd);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">bool</span> recvRetCommandFinished(uint32_t timeout = 100);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* #ifndef __NEXHARDWARE_H__ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup___core_a_p_i_html_gab09ddba6b72334d30ae091a7b038d790"><div class="ttname"><a href="group___core_a_p_i.html#gab09ddba6b72334d30ae091a7b038d790">nexInit</a></div><div class="ttdeci">bool nexInit(void)</div><div class="ttdoc">Init Nextion.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_hardware_8cpp_source.html#l00220">NexHardware.cpp:220</a></div></div>
 <div class="ttc" id="aclass_nex_touch_html"><div class="ttname"><a href="class_nex_touch.html">NexTouch</a></div><div class="ttdoc">Father class of the components with touch events.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_touch_8h_source.html#l00053">NexTouch.h:54</a></div></div>
+<div class="ttc" id="agroup___core_a_p_i_html_ga37c375dd9c569925192da2b5b60884fe"><div class="ttname"><a href="group___core_a_p_i.html#ga37c375dd9c569925192da2b5b60884fe">nexSerial</a></div><div class="ttdeci">HardwareSerial * nexSerial</div><div class="ttdoc">Init Nextion.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_hardware_8cpp_source.html#l00020">NexHardware.cpp:20</a></div></div>
 <div class="ttc" id="a_nex_config_8h_html"><div class="ttname"><a href="_nex_config_8h.html">NexConfig.h</a></div></div>
-<div class="ttc" id="agroup___core_a_p_i_html_ga91c549e696b0ca035cf18901e6a50d5a"><div class="ttname"><a href="group___core_a_p_i.html#ga91c549e696b0ca035cf18901e6a50d5a">nexLoop</a></div><div class="ttdeci">void nexLoop(NexTouch *nex_listen_list[])</div><div class="ttdoc">Listen touch event and calling callbacks attached before.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_hardware_8cpp_source.html#l00235">NexHardware.cpp:235</a></div></div>
+<div class="ttc" id="agroup___core_a_p_i_html_ga91c549e696b0ca035cf18901e6a50d5a"><div class="ttname"><a href="group___core_a_p_i.html#ga91c549e696b0ca035cf18901e6a50d5a">nexLoop</a></div><div class="ttdeci">void nexLoop(NexTouch *nex_listen_list[])</div><div class="ttdoc">Listen touch event and calling callbacks attached before.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_hardware_8cpp_source.html#l00300">NexHardware.cpp:300</a></div></div>
 <div class="ttc" id="a_nex_touch_8h_html"><div class="ttname"><a href="_nex_touch_8h.html">NexTouch.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_nex_hardware_8h.html">NexHardware.h</a></li>
-    <li class="footer">Generated on Tue Aug 11 2020 13:48:19 for Documentation by
+    <li class="footer">Generated on Wed Aug 19 2020 09:34:52 for Documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
   </ul>

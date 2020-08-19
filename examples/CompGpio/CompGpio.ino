@@ -31,7 +31,7 @@ uint32_t pwm_value = 0;
 
 void setup() 
 {  
-    nexSerial.begin(115200);
+    nexSerial->begin(115200);
     gpio.pin_mode(GPIO_PUSH_PORT,GPIO_PUSH_OUTPUT_MODE,CONTROLS_ID);
     gpio.pin_mode(GPIO_PWM_PORT,GPIO_PWM_OUT_MODE,CONTROLS_ID);
 }

@@ -1,14 +1,14 @@
 var class_nex_gauge =
 [
     [ "NexGauge", "class_nex_gauge.html#ac79040067d42f7f1ba16cc4a1dfd8b9b", null ],
-    [ "Get_background_color_bco", "class_nex_gauge.html#a03a6441159939961b64728dded177e92", null ],
-    [ "Get_background_cropi_picc", "class_nex_gauge.html#a0a6b394a16b03beb6046ec3795d409fe", null ],
-    [ "Get_font_color_pco", "class_nex_gauge.html#a830152d58485d55f475376261d52ff62", null ],
-    [ "Get_pointer_thickness_wid", "class_nex_gauge.html#a50b4daf1b8dfb3cc5c329a3664341e11", null ],
+    [ "getBackgroundColorBco", "class_nex_gauge.html#a49594710e2ba9bc4e4e12c7e71e6a923", null ],
+    [ "getBackgroundCropPicc", "class_nex_gauge.html#a65dd49947f078d180431b19308ecc136", null ],
+    [ "getPointerColorPco", "class_nex_gauge.html#aa077b6dcb67bd7c89052530e9b0680d8", null ],
+    [ "getPointerThicknessWid", "class_nex_gauge.html#a172a881506d714781a223d0b16e74074", null ],
     [ "getValue", "class_nex_gauge.html#aeea8933513ebba11584ad97f8c8b5e69", null ],
-    [ "Set_background_color_bco", "class_nex_gauge.html#a2d2fe2d81da81e14a66260c501d644b3", null ],
-    [ "Set_background_crop_picc", "class_nex_gauge.html#a223fa8a91a87439047f22ca1c33660df", null ],
-    [ "Set_font_color_pco", "class_nex_gauge.html#ace00cba20b5cf5e1374c1a57bbf9a5f5", null ],
-    [ "Set_pointer_thickness_wid", "class_nex_gauge.html#adacdbcb25fdf45654ebc88f572e3bce9", null ],
+    [ "setBackgroundColorBco", "class_nex_gauge.html#afc408fdee52420b6428ec4972b956171", null ],
+    [ "setBackgroundCropPicc", "class_nex_gauge.html#a851ce484a05dd5f38ccd8bc0dd533530", null ],
+    [ "setPointerColorPco", "class_nex_gauge.html#aae0bf59068f7e470c74bc2087f38f2c8", null ],
+    [ "setPointerThicknessWid", "class_nex_gauge.html#ae97c7f15d3d40bcbe625dac4c6a75247", null ],
     [ "setValue", "class_nex_gauge.html#a448ce9ad69f54c156c325d578a96b765", null ]
 ];

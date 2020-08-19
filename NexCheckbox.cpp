@@ -35,7 +35,7 @@ bool NexCheckbox::setValue(uint32_t number)
     return recvRetCommandFinished();
 }
 
-bool NexCheckbox::getBackGroundColorBco(uint32_t *number)
+bool NexCheckbox::getBackgroundColorBco(uint32_t *number)
 {
     char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "get %s.bco", getObjName());
@@ -43,7 +43,7 @@ bool NexCheckbox::getBackGroundColorBco(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexCheckbox::setBackGroundColorBco(uint32_t number)
+bool NexCheckbox::setBackgroundColorBco(uint32_t number)
 {
     char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "%s.bco=%u", getObjName(), number);

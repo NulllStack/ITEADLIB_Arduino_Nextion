@@ -66,7 +66,7 @@ public: /* methods */
      * @retval true - success
      * @retval false - fail
      */
-    bool getBackGroundColorBco(uint32_t *number);		
+    bool getBackgroundColorBco(uint32_t *number);		
 	
     /**
      * Set bco attribute of component
@@ -75,7 +75,7 @@ public: /* methods */
      * @retval true - success
      * @retval false - fail
      */
-    bool setBackGroundColorBco(uint32_t number);			
+    bool setBackgroundColorBco(uint32_t number);			
 	
     /**
      * Get pco attribute of component

@@ -70,113 +70,92 @@ $(document).ready(function(){initNavTree('_nex_q_rcode_8cpp_source.html',''); in
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#afd5939eaa4613bdcf2fd0ac8615f1c7f">   18</a></span>&#160;<a class="code" href="class_nex_q_rcode.html#afd5939eaa4613bdcf2fd0ac8615f1c7f">NexQRcode::NexQRcode</a>(uint8_t pid, uint8_t cid, <span class="keyword">const</span> <span class="keywordtype">char</span> *name)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    :<a class="code" href="class_nex_touch.html">NexTouch</a>(pid, cid, name)</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    sta_enable = Get_logo_sta();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a25d84bd156f4019c2ffceaf12aac364e">   24</a></span>&#160;uint16_t <a class="code" href="class_nex_q_rcode.html#a25d84bd156f4019c2ffceaf12aac364e">NexQRcode::getText</a>(<span class="keywordtype">char</span> *buffer, uint16_t len)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    String cmd;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    cmd += <span class="stringliteral">&quot;get &quot;</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    cmd += getObjName();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    cmd += <span class="stringliteral">&quot;.txt&quot;</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    sendCommand(cmd.c_str());</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> recvRetString(buffer,len);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a960427ab49a27916cc74783010330181">   34</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a960427ab49a27916cc74783010330181">NexQRcode::setText</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *buffer)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    String cmd;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    cmd += getObjName();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    cmd += <span class="stringliteral">&quot;.txt=\&quot;&quot;</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    cmd += buffer;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    cmd += <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    sendCommand(cmd.c_str());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> recvRetCommandFinished();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#acc4f74a7943f5ba537cafbece371da66">   45</a></span>&#160;uint32_t <a class="code" href="class_nex_q_rcode.html#acc4f74a7943f5ba537cafbece371da66">NexQRcode::Get_background_color_bco</a>(uint32_t* number)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">char</span> cmd[20];</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    sprintf_s(cmd, 20, <span class="stringliteral">&quot;get %s.bco&quot;</span>, getObjName());</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    sendCommand(cmd);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> recvRetNumber(number);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#ab5c82a77dd680a62578a4fc2ebf6c54e">   53</a></span>&#160;uint32_t <a class="code" href="class_nex_q_rcode.html#ab5c82a77dd680a62578a4fc2ebf6c54e">NexQRcode::Get_foreground_color_pco</a>(uint32_t* number)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">char</span> cmd[20];</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    sprintf_s(cmd, 20, <span class="stringliteral">&quot;get %s.pco&quot;</span>, getObjName());</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    sendCommand(cmd);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> recvRetNumber(number);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a2af5cf918904512ffbb69f9835288e2a">   61</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a2af5cf918904512ffbb69f9835288e2a">NexQRcode::Set_background_color_bco</a>(uint32_t number)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">char</span> cmd[20];</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    sprintf_s(cmd, 20, <span class="stringliteral">&quot;%s.bco=%d&quot;</span>, getObjName(), number);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    sendCommand(cmd);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> recvRetCommandFinished();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#aec32a8d02033f203fdd3b9884ffd53a2">   69</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#aec32a8d02033f203fdd3b9884ffd53a2">NexQRcode::Set_foreground_color_pco</a>(uint32_t number)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">char</span> cmd[20];</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    sprintf_s(cmd, 20, <span class="stringliteral">&quot;%s.pco=%d&quot;</span>, getObjName(), number);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    sendCommand(cmd);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> recvRetCommandFinished();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a1eadafd5d058786f1113268e893b643e">   77</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a1eadafd5d058786f1113268e893b643e">NexQRcode::getPic</a>(uint32_t* number)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> (sta_enable)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">char</span> cmd[20];</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        sprintf_s(cmd, 20, <span class="stringliteral">&quot;get %s.pic&quot;</span>, getObjName());</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        sendCommand(cmd);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> recvRetNumber(number);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a3616c0a84126d4fdf5284ce9e44b3654">   89</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a3616c0a84126d4fdf5284ce9e44b3654">NexQRcode::setPic</a>(uint32_t number)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (sta_enable)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">char</span> cmd[20];</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        sprintf_s(cmd, 20, <span class="stringliteral">&quot;%s.pic=%d&quot;</span>, getObjName(), number);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        sendCommand(cmd);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> recvRetCommandFinished();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">bool</span> NexQRcode::Get_logo_sta()</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    uint32_t sta;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">char</span> cmd[20];</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    sprintf_s(cmd, 20, <span class="stringliteral">&quot;get %s.sta&quot;</span>, getObjName());</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    sendCommand(cmd);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    recvRetNumber(&amp;sta);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> sta;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a25d84bd156f4019c2ffceaf12aac364e">   23</a></span>&#160;uint16_t <a class="code" href="class_nex_q_rcode.html#a25d84bd156f4019c2ffceaf12aac364e">NexQRcode::getText</a>(<span class="keywordtype">char</span> *buffer, uint16_t len)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;get %s.txt&quot;</span>, getObjName());</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    sendCommand(cmd);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> recvRetString(buffer,len);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a960427ab49a27916cc74783010330181">   31</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a960427ab49a27916cc74783010330181">NexQRcode::setText</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *buffer)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    String cmd;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    cmd += getObjName();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    cmd += <span class="stringliteral">&quot;.txt=\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    cmd += buffer;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    cmd += <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    sendCommand(cmd.c_str());</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> recvRetCommandFinished();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#ab228bb45bd91d8d5bce1ff841d506dc0">   42</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#ab228bb45bd91d8d5bce1ff841d506dc0">NexQRcode::getBackgroundColorBco</a>(uint32_t* number)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;get %s.bco&quot;</span>, getObjName());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    sendCommand(cmd);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> recvRetNumber(number);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a2d8e012e702bea5291b07969d854f09b">   50</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a2d8e012e702bea5291b07969d854f09b">NexQRcode::getForegroundColorPco</a>(uint32_t* number)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;get %s.pco&quot;</span>, getObjName());</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    sendCommand(cmd);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> recvRetNumber(number);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a71c3e3b34385f510e8083a73cb352ffb">   58</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a71c3e3b34385f510e8083a73cb352ffb">NexQRcode::setBackgroundColorBco</a>(uint32_t number)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;%s.bco=%d&quot;</span>, getObjName(), number);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    sendCommand(cmd);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> recvRetCommandFinished();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a64a6aa56d97ad23da6d90f92e299bc63">   66</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a64a6aa56d97ad23da6d90f92e299bc63">NexQRcode::setForegroundColorPco</a>(uint32_t number)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;%s.pco=%d&quot;</span>, getObjName(), number);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    sendCommand(cmd);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> recvRetCommandFinished();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a1eadafd5d058786f1113268e893b643e">   74</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a1eadafd5d058786f1113268e893b643e">NexQRcode::getPic</a>(uint32_t* number)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;get %s.pic&quot;</span>, getObjName());</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    sendCommand(cmd);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> recvRetNumber(number);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_nex_q_rcode.html#a3616c0a84126d4fdf5284ce9e44b3654">   82</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_q_rcode.html#a3616c0a84126d4fdf5284ce9e44b3654">NexQRcode::setPic</a>(uint32_t number)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;%s.pic=%d&quot;</span>, getObjName(), number);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    sendCommand(cmd);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> recvRetCommandFinished();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_nex_q_rcode_html_aec32a8d02033f203fdd3b9884ffd53a2"><div class="ttname"><a href="class_nex_q_rcode.html#aec32a8d02033f203fdd3b9884ffd53a2">NexQRcode::Set_foreground_color_pco</a></div><div class="ttdeci">bool Set_foreground_color_pco(uint32_t number)</div><div class="ttdoc">Set pco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00069">NexQRcode.cpp:69</a></div></div>
-<div class="ttc" id="aclass_nex_q_rcode_html_a2af5cf918904512ffbb69f9835288e2a"><div class="ttname"><a href="class_nex_q_rcode.html#a2af5cf918904512ffbb69f9835288e2a">NexQRcode::Set_background_color_bco</a></div><div class="ttdeci">bool Set_background_color_bco(uint32_t number)</div><div class="ttdoc">Set bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00061">NexQRcode.cpp:61</a></div></div>
-<div class="ttc" id="aclass_nex_q_rcode_html_a3616c0a84126d4fdf5284ce9e44b3654"><div class="ttname"><a href="class_nex_q_rcode.html#a3616c0a84126d4fdf5284ce9e44b3654">NexQRcode::setPic</a></div><div class="ttdeci">bool setPic(uint32_t number)</div><div class="ttdoc">Set picture's number.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00089">NexQRcode.cpp:89</a></div></div>
-<div class="ttc" id="aclass_nex_q_rcode_html_a25d84bd156f4019c2ffceaf12aac364e"><div class="ttname"><a href="class_nex_q_rcode.html#a25d84bd156f4019c2ffceaf12aac364e">NexQRcode::getText</a></div><div class="ttdeci">uint16_t getText(char *buffer, uint16_t len)</div><div class="ttdoc">Get text attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00024">NexQRcode.cpp:24</a></div></div>
+<div class="ttc" id="aclass_nex_q_rcode_html_a2d8e012e702bea5291b07969d854f09b"><div class="ttname"><a href="class_nex_q_rcode.html#a2d8e012e702bea5291b07969d854f09b">NexQRcode::getForegroundColorPco</a></div><div class="ttdeci">bool getForegroundColorPco(uint32_t *number)</div><div class="ttdoc">Get bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00050">NexQRcode.cpp:50</a></div></div>
+<div class="ttc" id="aclass_nex_q_rcode_html_a3616c0a84126d4fdf5284ce9e44b3654"><div class="ttname"><a href="class_nex_q_rcode.html#a3616c0a84126d4fdf5284ce9e44b3654">NexQRcode::setPic</a></div><div class="ttdeci">bool setPic(uint32_t number)</div><div class="ttdoc">Set picture's number.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00082">NexQRcode.cpp:82</a></div></div>
+<div class="ttc" id="aclass_nex_q_rcode_html_a25d84bd156f4019c2ffceaf12aac364e"><div class="ttname"><a href="class_nex_q_rcode.html#a25d84bd156f4019c2ffceaf12aac364e">NexQRcode::getText</a></div><div class="ttdeci">uint16_t getText(char *buffer, uint16_t len)</div><div class="ttdoc">Get text attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00023">NexQRcode.cpp:23</a></div></div>
 <div class="ttc" id="aclass_nex_touch_html"><div class="ttname"><a href="class_nex_touch.html">NexTouch</a></div><div class="ttdoc">Father class of the components with touch events.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_touch_8h_source.html#l00053">NexTouch.h:54</a></div></div>
 <div class="ttc" id="a_nex_q_rcode_8h_html"><div class="ttname"><a href="_nex_q_rcode_8h.html">NexQRcode.h</a></div></div>
-<div class="ttc" id="aclass_nex_q_rcode_html_ab5c82a77dd680a62578a4fc2ebf6c54e"><div class="ttname"><a href="class_nex_q_rcode.html#ab5c82a77dd680a62578a4fc2ebf6c54e">NexQRcode::Get_foreground_color_pco</a></div><div class="ttdeci">uint32_t Get_foreground_color_pco(uint32_t *number)</div><div class="ttdoc">Get bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00053">NexQRcode.cpp:53</a></div></div>
-<div class="ttc" id="aclass_nex_q_rcode_html_a1eadafd5d058786f1113268e893b643e"><div class="ttname"><a href="class_nex_q_rcode.html#a1eadafd5d058786f1113268e893b643e">NexQRcode::getPic</a></div><div class="ttdeci">bool getPic(uint32_t *number)</div><div class="ttdoc">Get picture's number.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00077">NexQRcode.cpp:77</a></div></div>
-<div class="ttc" id="aclass_nex_q_rcode_html_a960427ab49a27916cc74783010330181"><div class="ttname"><a href="class_nex_q_rcode.html#a960427ab49a27916cc74783010330181">NexQRcode::setText</a></div><div class="ttdeci">bool setText(const char *buffer)</div><div class="ttdoc">Set text attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00034">NexQRcode.cpp:34</a></div></div>
-<div class="ttc" id="aclass_nex_q_rcode_html_acc4f74a7943f5ba537cafbece371da66"><div class="ttname"><a href="class_nex_q_rcode.html#acc4f74a7943f5ba537cafbece371da66">NexQRcode::Get_background_color_bco</a></div><div class="ttdeci">uint32_t Get_background_color_bco(uint32_t *number)</div><div class="ttdoc">Get bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00045">NexQRcode.cpp:45</a></div></div>
+<div class="ttc" id="aclass_nex_q_rcode_html_a71c3e3b34385f510e8083a73cb352ffb"><div class="ttname"><a href="class_nex_q_rcode.html#a71c3e3b34385f510e8083a73cb352ffb">NexQRcode::setBackgroundColorBco</a></div><div class="ttdeci">bool setBackgroundColorBco(uint32_t number)</div><div class="ttdoc">Set bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00058">NexQRcode.cpp:58</a></div></div>
+<div class="ttc" id="aclass_nex_q_rcode_html_a1eadafd5d058786f1113268e893b643e"><div class="ttname"><a href="class_nex_q_rcode.html#a1eadafd5d058786f1113268e893b643e">NexQRcode::getPic</a></div><div class="ttdeci">bool getPic(uint32_t *number)</div><div class="ttdoc">Get picture's number.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00074">NexQRcode.cpp:74</a></div></div>
+<div class="ttc" id="aclass_nex_q_rcode_html_ab228bb45bd91d8d5bce1ff841d506dc0"><div class="ttname"><a href="class_nex_q_rcode.html#ab228bb45bd91d8d5bce1ff841d506dc0">NexQRcode::getBackgroundColorBco</a></div><div class="ttdeci">bool getBackgroundColorBco(uint32_t *number)</div><div class="ttdoc">Get bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00042">NexQRcode.cpp:42</a></div></div>
+<div class="ttc" id="aclass_nex_q_rcode_html_a960427ab49a27916cc74783010330181"><div class="ttname"><a href="class_nex_q_rcode.html#a960427ab49a27916cc74783010330181">NexQRcode::setText</a></div><div class="ttdeci">bool setText(const char *buffer)</div><div class="ttdoc">Set text attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00031">NexQRcode.cpp:31</a></div></div>
+<div class="ttc" id="aclass_nex_q_rcode_html_a64a6aa56d97ad23da6d90f92e299bc63"><div class="ttname"><a href="class_nex_q_rcode.html#a64a6aa56d97ad23da6d90f92e299bc63">NexQRcode::setForegroundColorPco</a></div><div class="ttdeci">bool setForegroundColorPco(uint32_t number)</div><div class="ttdoc">Set pco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00066">NexQRcode.cpp:66</a></div></div>
 <div class="ttc" id="aclass_nex_q_rcode_html_afd5939eaa4613bdcf2fd0ac8615f1c7f"><div class="ttname"><a href="class_nex_q_rcode.html#afd5939eaa4613bdcf2fd0ac8615f1c7f">NexQRcode::NexQRcode</a></div><div class="ttdeci">NexQRcode(uint8_t pid, uint8_t cid, const char *name)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_q_rcode_8cpp_source.html#l00018">NexQRcode.cpp:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_nex_q_rcode_8cpp.html">NexQRcode.cpp</a></li>
-    <li class="footer">Generated on Tue Aug 11 2020 13:48:19 for Documentation by
+    <li class="footer">Generated on Wed Aug 19 2020 09:34:52 for Documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
   </ul>

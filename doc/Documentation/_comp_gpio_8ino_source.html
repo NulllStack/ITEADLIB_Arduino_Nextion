@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('_comp_gpio_8ino_source.html',''); init
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;void setup() </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{  </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    nexSerial.begin(115200);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    nexSerial-&gt;begin(115200);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    gpio.pin_mode(GPIO_PUSH_PORT,GPIO_PUSH_OUTPUT_MODE,CONTROLS_ID);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    gpio.pin_mode(GPIO_PWM_PORT,GPIO_PWM_OUT_MODE,CONTROLS_ID);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('_comp_gpio_8ino_source.html',''); init
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="dir_3ad5f4252e1fbdc51ed503f2a6758bcc.html">CompGpio</a></li><li class="navelem"><b>CompGpio.ino</b></li>
-    <li class="footer">Generated on Tue Aug 11 2020 13:48:19 for Documentation by
+    <li class="footer">Generated on Wed Aug 19 2020 09:34:52 for Documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
   </ul>

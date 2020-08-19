@@ -77,46 +77,63 @@ $(document).ready(function(){initNavTree('_nex_object_8h_source.html',''); initR
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_nex_object.html#abeff0c61474e8b3ce6bac76771820b64">printObjInfo</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">protected</span>: <span class="comment">/* methods */</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     * Get page id.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">     * @return the id of page.  </span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    uint8_t getObjPid(<span class="keywordtype">void</span>);    </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     * Get component id.</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">     * @return the id of component.  </span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     * Enable Nextion object.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     * @retval true - success</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     * @retval false - fail</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> setEnable();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">     * Disable Nextion object.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">     * @retval true - success</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">     * @retval false - fail</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    uint8_t getObjCid(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> setDisable();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">     * Get component name.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">     * @return the name of component. </span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *getObjName(<span class="keywordtype">void</span>);    </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">private</span>: <span class="comment">/* data */</span> </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    uint8_t __pid; <span class="comment">/* Page ID */</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    uint8_t __cid; <span class="comment">/* Component ID */</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *__name; <span class="comment">/* An unique name */</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* #ifndef __NEXOBJECT_H__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">protected</span>: <span class="comment">/* methods */</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">     * Get page id.</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     * @return the id of page.  </span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    uint8_t getObjPid(<span class="keywordtype">void</span>);    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">     * Get component id.</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">     * @return the id of component.  </span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    uint8_t getObjCid(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">     * Get component name.</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">     * @return the name of component. </span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *getObjName(<span class="keywordtype">void</span>);    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">private</span>: <span class="comment">/* data */</span> </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    uint8_t __pid; <span class="comment">/* Page ID */</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    uint8_t __cid; <span class="comment">/* Component ID */</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *__name; <span class="comment">/* An unique name */</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* #ifndef __NEXOBJECT_H__ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_nex_object_html_abeff0c61474e8b3ce6bac76771820b64"><div class="ttname"><a href="class_nex_object.html#abeff0c61474e8b3ce6bac76771820b64">NexObject::printObjInfo</a></div><div class="ttdeci">void printObjInfo(void)</div><div class="ttdoc">Print current object'address, page id, component id and name.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_object_8cpp_source.html#l00039">NexObject.cpp:39</a></div></div>
-<div class="ttc" id="aclass_nex_object_html_ab15aadb9c91d9690786d8d25d12d94e1"><div class="ttname"><a href="class_nex_object.html#ab15aadb9c91d9690786d8d25d12d94e1">NexObject::NexObject</a></div><div class="ttdeci">NexObject(uint8_t pid, uint8_t cid, const char *name)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_object_8cpp_source.html#l00017">NexObject.cpp:17</a></div></div>
+<div class="ttc" id="aclass_nex_object_html_abeff0c61474e8b3ce6bac76771820b64"><div class="ttname"><a href="class_nex_object.html#abeff0c61474e8b3ce6bac76771820b64">NexObject::printObjInfo</a></div><div class="ttdeci">void printObjInfo(void)</div><div class="ttdoc">Print current object'address, page id, component id and name.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_object_8cpp_source.html#l00040">NexObject.cpp:40</a></div></div>
+<div class="ttc" id="aclass_nex_object_html_ab15aadb9c91d9690786d8d25d12d94e1"><div class="ttname"><a href="class_nex_object.html#ab15aadb9c91d9690786d8d25d12d94e1">NexObject::NexObject</a></div><div class="ttdeci">NexObject(uint8_t pid, uint8_t cid, const char *name)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_object_8cpp_source.html#l00018">NexObject.cpp:18</a></div></div>
 <div class="ttc" id="aclass_nex_object_html"><div class="ttname"><a href="class_nex_object.html">NexObject</a></div><div class="ttdoc">Root class of all Nextion components.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_object_8h_source.html#l00032">NexObject.h:33</a></div></div>
 <div class="ttc" id="a_nex_config_8h_html"><div class="ttname"><a href="_nex_config_8h.html">NexConfig.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_nex_object_8h.html">NexObject.h</a></li>
-    <li class="footer">Generated on Tue Aug 11 2020 13:48:19 for Documentation by
+    <li class="footer">Generated on Wed Aug 19 2020 09:34:52 for Documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
   </ul>

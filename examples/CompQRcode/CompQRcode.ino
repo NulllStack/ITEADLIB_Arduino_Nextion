@@ -27,7 +27,7 @@ int ntimeCount;
 void setup(void)
 {
     /* Set the baudrate which is for debug and communicate with Nextion screen. */
-    nexInit();
+    nexInit(Serial1);
     
     dbSerialPrintln("setup done"); 
 }

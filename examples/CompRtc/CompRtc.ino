@@ -24,7 +24,7 @@ uint8_t time_buf[30] = {0};
 
 void setup() 
 {
-    nexSerial.begin(115200);
+    nexSerial->begin(115200);
     rtc.write_rtc_time(time);
 }
 

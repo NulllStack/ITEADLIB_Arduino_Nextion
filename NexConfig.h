@@ -24,7 +24,7 @@
  * Define DEBUG_SERIAL_ENABLE to enable debug serial. 
  * Comment it to disable debug serial. 
  */
-#define DEBUG_SERIAL_ENABLE
+// #define DEBUG_SERIAL_ENABLE
 
 /**
  * Define dbSerial for the output of debug messages. 
@@ -34,14 +34,7 @@
 /**
  * Define nexSerial for communicate with Nextion touch panel. 
  */
-//#define USE_SOFTWARE_SERIAL
-#ifdef USE_SOFTWARE_SERIAL
-#include <SoftwareSerial.h>
-SoftwareSerial softSerial(3, 2); /* RX:D3, TX:D2 */
-#define nexSerial softSerial
-#else
-#define nexSerial Serial2
-#endif
+// #define USE_SOFTWARE_SERIAL
 
 #ifdef DEBUG_SERIAL_ENABLE
 #define dbSerialPrint(a)    dbSerial.print(a)
@@ -52,6 +45,8 @@ SoftwareSerial softSerial(3, 2); /* RX:D3, TX:D2 */
 #define dbSerialPrintln(a)  do{}while(0)
 #define dbSerialBegin(a)    do{}while(0)
 #endif
+
+#define NEXTION_COMMAND_BUFFER (20)
 
 /**
  * @}

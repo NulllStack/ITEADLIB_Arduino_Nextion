@@ -10,6 +10,6 @@ var group___core_a_p_i =
       [ "NexUpload", "class_nex_upload.html#a97d6aeee29cfdeb1ec4dcec8d5a58396", null ],
       [ "~NexUpload", "class_nex_upload.html#a26ccc2285435b6b573fa5c4b661c080a", null ]
     ] ],
-    [ "nexInit", "group___core_a_p_i.html#gab09ddba6b72334d30ae091a7b038d790", null ],
-    [ "nexLoop", "group___core_a_p_i.html#ga91c549e696b0ca035cf18901e6a50d5a", null ]
+    [ "nexLoop", "group___core_a_p_i.html#ga91c549e696b0ca035cf18901e6a50d5a", null ],
+    [ "nexSerial", "group___core_a_p_i.html#ga37c375dd9c569925192da2b5b60884fe", null ]
 ];

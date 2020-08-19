@@ -14,6 +14,12 @@
  */
 #include "NexHardware.h"
 
+#ifdef USE_SOFTWARE_SERIAL
+SoftwareSerial *nexSerial; 
+#else
+HardwareSerial *nexSerial;
+#endif
+
 #define NEX_RET_CMD_FINISHED            (0x01)
 #define NEX_RET_EVENT_LAUNCHED          (0x88)
 #define NEX_RET_EVENT_UPGRADED          (0x89)
@@ -52,8 +58,8 @@ bool recvRetNumber(uint32_t *number, uint32_t timeout)
         goto __return;
     }
     
-    nexSerial.setTimeout(timeout);
-    if (sizeof(temp) != nexSerial.readBytes((char *)temp, sizeof(temp)))
+    nexSerial->setTimeout(timeout);
+    if (sizeof(temp) != nexSerial->readBytes((char *)temp, sizeof(temp)))
     {
         goto __return;
     }
@@ -64,7 +70,7 @@ bool recvRetNumber(uint32_t *number, uint32_t timeout)
         && temp[7] == 0xFF
         )
     {
-        *number = ((uint32_t)temp[4] << 24) | ((uint32_t)temp[3] << 16) | (temp[2] << 8) | (temp[1]);
+        *number = (temp[4] << 24) | (temp[3] << 16) | (temp[2] << 8) | (temp[1]);
         ret = true;
     }
 
@@ -83,16 +89,7 @@ __return:
     return ret;
 }
 
-/*
- * Receive int32_t data. 
- * 
- * @param number - save int32_t data. 
- * @param timeout - set timeout time. 
- *
- * @retval true - success. 
- * @retval false - failed.
- *
- */
+
 bool recvRetNumber(int32_t *number, uint32_t timeout)
 {
     bool ret = false;
@@ -102,20 +99,20 @@ bool recvRetNumber(int32_t *number, uint32_t timeout)
     {
         goto __return;
     }
-    
-    nexSerial.setTimeout(timeout);
-    if (sizeof(temp) != nexSerial.readBytes((char *)temp, sizeof(temp)))
+
+    nexSerial->setTimeout(timeout);
+    if (sizeof(temp) != nexSerial->readBytes((char *)temp, sizeof(temp)))
     {
         goto __return;
     }
 
     if (temp[0] == NEX_RET_NUMBER_HEAD
-        && temp[5] == 0xFF
-        && temp[6] == 0xFF
-        && temp[7] == 0xFF
+        && temp[5] == 0xff
+        && temp[6] == 0xff
+        && temp[7] == 0xff
         )
     {
-        *number = ((uint32_t)temp[4] << 24) | ((uint32_t)temp[3] << 16) | (temp[2] << 8) | (temp[1]);
+        *number = (temp[4] << 24) | (temp[3] << 16) | (temp[2] << 8) | (temp[1]);
         ret = true;
     }
 
@@ -151,7 +148,7 @@ uint16_t recvRetString(char *buffer, uint16_t len, uint32_t timeout)
     uint8_t cnt_0xff = 0;
     String temp = String("");
     uint8_t c = 0;
-    long start;
+    uint32_t start;
 
     if (!buffer || len == 0)
     {
@@ -161,9 +158,9 @@ uint16_t recvRetString(char *buffer, uint16_t len, uint32_t timeout)
     start = millis();
     while (millis() - start <= timeout)
     {
-        while (nexSerial.available())
+        while (nexSerial->available())
         {
-            c = nexSerial.read();
+            c = nexSerial->read();
             if (str_start_flag)
             {
                 if (0xFF == c)
@@ -213,15 +210,15 @@ __return:
  */
 void sendCommand(const char* cmd)
 {
-    while (nexSerial.available())
-    {
-        nexSerial.read();
-    }
+    // while (nexSerial->available())
+    // {
+    //     nexSerial->read();
+    // }
     
-    nexSerial.print(cmd);
-    nexSerial.write(0xFF);
-    nexSerial.write(0xFF);
-    nexSerial.write(0xFF);
+    nexSerial->print(cmd);
+    nexSerial->write(0xFF);
+    nexSerial->write(0xFF);
+    nexSerial->write(0xFF);
 }
 
 
@@ -239,8 +236,8 @@ bool recvRetCommandFinished(uint32_t timeout)
     bool ret = false;
     uint8_t temp[4] = {0};
     
-    nexSerial.setTimeout(timeout);
-    if (sizeof(temp) != nexSerial.readBytes((char *)temp, sizeof(temp)))
+    nexSerial->setTimeout(timeout);
+    if (sizeof(temp) != nexSerial->readBytes((char *)temp, sizeof(temp)))
     {
         ret = false;
     }
@@ -266,14 +263,15 @@ bool recvRetCommandFinished(uint32_t timeout)
     return ret;
 }
 
-
-bool nexInit(void)
+#if defined(USE_SOFTWARE_SERIAL)
+bool nexInit(SoftwareSerial &next)
 {
     bool ret1 = false;
     bool ret2 = false;
     
     dbSerialBegin(9600);
-    nexSerial.begin(9600);
+    nexSerial = &next;
+    nexSerial->begin(9600);
     sendCommand("");
     sendCommand("bkcmd=1");
     ret1 = recvRetCommandFinished();
@@ -281,6 +279,30 @@ bool nexInit(void)
     ret2 = recvRetCommandFinished();
     return ret1 && ret2;
 }
+#else
+bool nexInit(HardwareSerial &next)
+{
+    bool ret1 = false;
+    bool ret2 = false;
+    
+    dbSerialBegin(9600);
+    nexSerial = &next;
+    nexSerial->begin(9600);
+
+    while (nexSerial->available())
+    {
+        nexSerial->read();
+    }
+    
+
+    sendCommand("");
+    sendCommand("bkcmd=1");
+    ret1 = recvRetCommandFinished();
+    sendCommand("page 0");
+    ret2 = recvRetCommandFinished();
+    return ret1 && ret2;
+}
+#endif
 
 void nexLoop(NexTouch *nex_listen_list[])
 {
@@ -289,27 +311,19 @@ void nexLoop(NexTouch *nex_listen_list[])
     uint16_t i;
     uint8_t c;  
     
-    while (nexSerial.available() > 0)
+    while (nexSerial->available() > 0)
     {   
-        delay(10);
-        c = nexSerial.read();
+        c = nexSerial->read();
         
         if (NEX_RET_EVENT_TOUCH_HEAD == c)
         {
-            if (nexSerial.available() >= 6)
+            __buffer[0] = c;  
+            nexSerial->setTimeout(100);
+            nexSerial->readBytes(__buffer + 1, 6);
+            
+            if (0xFF == __buffer[4] && 0xFF == __buffer[5] && 0xFF == __buffer[6])
             {
-                __buffer[0] = c;  
-                for (i = 1; i < 7; i++)
-                {
-                    __buffer[i] = nexSerial.read();
-                }
-                __buffer[i] = 0x00;
-                
-                if (0xFF == __buffer[4] && 0xFF == __buffer[5] && 0xFF == __buffer[6])
-                {
-                    NexTouch::iterate(nex_listen_list, __buffer[1], __buffer[2], (int32_t)__buffer[3]);
-                }
-                
+                NexTouch::iterate(nex_listen_list, __buffer[1], __buffer[2], (int32_t)__buffer[3]);
             }
         }
     }

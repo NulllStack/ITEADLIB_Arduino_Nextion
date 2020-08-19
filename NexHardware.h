@@ -14,7 +14,6 @@
  */
 #ifndef __NEXHARDWARE_H__
 #define __NEXHARDWARE_H__
-#define NEXTION_COMMAND_BUFFER 20
 #include <Arduino.h>
 #include "NexConfig.h"
 #include "NexTouch.h"
@@ -29,7 +28,14 @@
  * 
  * @return true if success, false for failure. 
  */
-bool nexInit(void);
+#ifdef USE_SOFTWARE_SERIAL
+#include <SoftwareSerial.h>
+extern SoftwareSerial *nexSerial;
+bool nexInit(SoftwareSerial &nexSerial);
+#else
+extern HardwareSerial *nexSerial;
+bool nexInit(HardwareSerial &nexSerial);
+#endif
 
 /**
  * Listen touch event and calling callbacks attached before.

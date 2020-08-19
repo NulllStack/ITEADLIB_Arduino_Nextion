@@ -13,6 +13,7 @@
  * the License, or (at your option) any later version.
  */
 #include "NexObject.h"
+#include "NexHardware.h"
 
 NexObject::NexObject(uint8_t pid, uint8_t cid, const char *name)
 {
