@@ -193,7 +193,7 @@ bool NexScrolltext::setBackgroundImagePic(uint32_t number)
     return recvRetCommandFinished();
 }
 
-bool NexScrolltext::getScrollDir(uint32_t *number)
+bool NexScrolltext::getScrollDirection(uint32_t *number)
 {
     char cmd[NEXTION_COMMAND_BUFFER] = "get ";
     strcat(cmd, getObjName());
@@ -202,7 +202,7 @@ bool NexScrolltext::getScrollDir(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexScrolltext::setScrollDir(uint32_t number)
+bool NexScrolltext::setScrollDirection(uint32_t number)
 {
     char cmd[NEXTION_COMMAND_BUFFER];
     sprintf(cmd, "%s.dir=%u", getObjName(), number);
@@ -242,7 +242,7 @@ bool NexScrolltext::setScrollDistance(uint32_t number)
     return recvRetCommandFinished();
 }
 
-bool NexScrolltext::getCycleTim(uint32_t *number)
+bool NexScrolltext::getCycle(uint32_t *number)
 {
     char cmd[NEXTION_COMMAND_BUFFER] = "get ";
     strcat(cmd, getObjName());
@@ -251,7 +251,7 @@ bool NexScrolltext::getCycleTim(uint32_t *number)
     return recvRetNumber(number);
 }
 
-bool NexScrolltext::setCycleTim(uint32_t number)
+bool NexScrolltext::setCycle(uint32_t number)
 {
     if (number < 8)
     {

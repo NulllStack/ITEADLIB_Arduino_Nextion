@@ -170,7 +170,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    bool getScrollDir(uint32_t *number);		
+    bool getScrollDirection(uint32_t *number);		
 	
     /**
      * Set dir attribute of component
@@ -178,7 +178,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool setScrollDir(uint32_t number);	
+    bool setScrollDirection(uint32_t number);	
 
     /**
      * Get dis attribute of component
@@ -202,7 +202,7 @@ public: /* methods */
      * @param number - buffer storing data retur
      * @return the length of the data 
      */
-    bool getCycleTim(uint32_t *number);
+    bool getCycle(uint32_t *number);
 
     /**
      * Set tim attribute of component
@@ -210,7 +210,7 @@ public: /* methods */
      * @param number - To set up the data
      * @return true if success, false for failure
      */
-    bool setCycleTim(uint32_t number);			
+    bool setCycle(uint32_t number);			
 	
     /**
      * Set en attribute of component

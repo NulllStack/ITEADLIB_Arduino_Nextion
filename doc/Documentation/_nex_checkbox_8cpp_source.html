@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('_nex_checkbox_8cpp_source.html',''); i
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> recvRetCommandFinished();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_nex_checkbox.html#a9b94d7ec7180749c9ce78d388f7ffedc">   38</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_checkbox.html#a9b94d7ec7180749c9ce78d388f7ffedc">NexCheckbox::getBackGroundColorBco</a>(uint32_t *number)</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_nex_checkbox.html#ae430e94a119ba73e524c61380a18de95">   38</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_checkbox.html#ae430e94a119ba73e524c61380a18de95">NexCheckbox::getBackgroundColorBco</a>(uint32_t *number)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;get %s.bco&quot;</span>, getObjName());</div>
@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('_nex_checkbox_8cpp_source.html',''); i
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> recvRetNumber(number);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_nex_checkbox.html#a6fc1f912ce9f5fae2e98eb0937b85a26">   46</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_checkbox.html#a6fc1f912ce9f5fae2e98eb0937b85a26">NexCheckbox::setBackGroundColorBco</a>(uint32_t number)</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_nex_checkbox.html#a9d2702baab7ccfb64f63e4360485e0f5">   46</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_nex_checkbox.html#a9d2702baab7ccfb64f63e4360485e0f5">NexCheckbox::setBackgroundColorBco</a>(uint32_t number)</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">char</span> cmd[NEXTION_COMMAND_BUFFER];</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    sprintf(cmd, <span class="stringliteral">&quot;%s.bco=%u&quot;</span>, getObjName(), number);</div>
@@ -132,20 +132,20 @@ $(document).ready(function(){initNavTree('_nex_checkbox_8cpp_source.html',''); i
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_nex_checkbox_html_a9d2702baab7ccfb64f63e4360485e0f5"><div class="ttname"><a href="class_nex_checkbox.html#a9d2702baab7ccfb64f63e4360485e0f5">NexCheckbox::setBackgroundColorBco</a></div><div class="ttdeci">bool setBackgroundColorBco(uint32_t number)</div><div class="ttdoc">Set bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00046">NexCheckbox.cpp:46</a></div></div>
 <div class="ttc" id="aclass_nex_checkbox_html_a8aa4ea60796bdce0de0de3dd675ef56a"><div class="ttname"><a href="class_nex_checkbox.html#a8aa4ea60796bdce0de0de3dd675ef56a">NexCheckbox::NexCheckbox</a></div><div class="ttdeci">NexCheckbox(uint8_t pid, uint8_t cid, const char *name)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00017">NexCheckbox.cpp:17</a></div></div>
 <div class="ttc" id="aclass_nex_checkbox_html_aa932e7c45765400618dce1804766264b"><div class="ttname"><a href="class_nex_checkbox.html#aa932e7c45765400618dce1804766264b">NexCheckbox::setValue</a></div><div class="ttdeci">bool setValue(uint32_t number)</div><div class="ttdoc">Set val attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00030">NexCheckbox.cpp:30</a></div></div>
 <div class="ttc" id="aclass_nex_checkbox_html_a5db837461b1a56090c8ab611aa0c52de"><div class="ttname"><a href="class_nex_checkbox.html#a5db837461b1a56090c8ab611aa0c52de">NexCheckbox::getFontColorPco</a></div><div class="ttdeci">bool getFontColorPco(uint32_t *number)</div><div class="ttdoc">Get pco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00059">NexCheckbox.cpp:59</a></div></div>
 <div class="ttc" id="aclass_nex_touch_html"><div class="ttname"><a href="class_nex_touch.html">NexTouch</a></div><div class="ttdoc">Father class of the components with touch events.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_touch_8h_source.html#l00053">NexTouch.h:54</a></div></div>
-<div class="ttc" id="aclass_nex_checkbox_html_a6fc1f912ce9f5fae2e98eb0937b85a26"><div class="ttname"><a href="class_nex_checkbox.html#a6fc1f912ce9f5fae2e98eb0937b85a26">NexCheckbox::setBackGroundColorBco</a></div><div class="ttdeci">bool setBackGroundColorBco(uint32_t number)</div><div class="ttdoc">Set bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00046">NexCheckbox.cpp:46</a></div></div>
-<div class="ttc" id="aclass_nex_checkbox_html_a9b94d7ec7180749c9ce78d388f7ffedc"><div class="ttname"><a href="class_nex_checkbox.html#a9b94d7ec7180749c9ce78d388f7ffedc">NexCheckbox::getBackGroundColorBco</a></div><div class="ttdeci">bool getBackGroundColorBco(uint32_t *number)</div><div class="ttdoc">Get bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00038">NexCheckbox.cpp:38</a></div></div>
 <div class="ttc" id="aclass_nex_checkbox_html_abf12da278ba3fdb46a0e78ba98299111"><div class="ttname"><a href="class_nex_checkbox.html#abf12da278ba3fdb46a0e78ba98299111">NexCheckbox::setFontColorPco</a></div><div class="ttdeci">bool setFontColorPco(uint32_t number)</div><div class="ttdoc">Set pco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00068">NexCheckbox.cpp:68</a></div></div>
+<div class="ttc" id="aclass_nex_checkbox_html_ae430e94a119ba73e524c61380a18de95"><div class="ttname"><a href="class_nex_checkbox.html#ae430e94a119ba73e524c61380a18de95">NexCheckbox::getBackgroundColorBco</a></div><div class="ttdeci">bool getBackgroundColorBco(uint32_t *number)</div><div class="ttdoc">Get bco attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00038">NexCheckbox.cpp:38</a></div></div>
 <div class="ttc" id="aclass_nex_checkbox_html_ac31caa96ae0627f928bce2302224e89b"><div class="ttname"><a href="class_nex_checkbox.html#ac31caa96ae0627f928bce2302224e89b">NexCheckbox::getValue</a></div><div class="ttdeci">bool getValue(uint32_t *number)</div><div class="ttdoc">Get val attribute of component.</div><div class="ttdef"><b>Definition:</b> <a href="_nex_checkbox_8cpp_source.html#l00022">NexCheckbox.cpp:22</a></div></div>
 <div class="ttc" id="a_nex_checkbox_8h_html"><div class="ttname"><a href="_nex_checkbox_8h.html">NexCheckbox.h</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_nex_checkbox_8cpp.html">NexCheckbox.cpp</a></li>
-    <li class="footer">Generated on Wed Aug 19 2020 09:34:52 for Documentation by
+    <li class="footer">Generated on Wed Aug 19 2020 16:35:35 for Documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
   </ul>
